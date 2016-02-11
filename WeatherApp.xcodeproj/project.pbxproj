@@ -13,6 +13,7 @@
 		D400C29E1C6B25CF00A26019 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D400C29C1C6B25CF00A26019 /* Main.storyboard */; };
 		D400C2A01C6B25CF00A26019 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D400C29F1C6B25CF00A26019 /* Assets.xcassets */; };
 		D400C2A31C6B25CF00A26019 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D400C2A11C6B25CF00A26019 /* LaunchScreen.storyboard */; };
+		D4580DA21C6D292D0008A18C /* DK Buttered Toast.otf in Resources */ = {isa = PBXBuildFile; fileRef = D4580DA11C6D292D0008A18C /* DK Buttered Toast.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		D400C29F1C6B25CF00A26019 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D400C2A21C6B25CF00A26019 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D400C2A41C6B25CF00A26019 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D4580DA11C6D292D0008A18C /* DK Buttered Toast.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DK Buttered Toast.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,10 @@
 		D400C2971C6B25CF00A26019 /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				D4580DA01C6D1C880008A18C /* Resources */,
+				D4580D9F1C6D1C830008A18C /* Model */,
+				D4580D9E1C6D1C7F0008A18C /* Controller */,
+				D4580D9D1C6D1C7B0008A18C /* View */,
 				D400C2981C6B25CF00A26019 /* AppDelegate.swift */,
 				D400C29A1C6B25CF00A26019 /* ViewController.swift */,
 				D400C29C1C6B25CF00A26019 /* Main.storyboard */,
@@ -86,6 +92,35 @@
 				D400C2A41C6B25CF00A26019 /* Info.plist */,
 			);
 			path = WeatherApp;
+			sourceTree = "<group>";
+		};
+		D4580D9D1C6D1C7B0008A18C /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		D4580D9E1C6D1C7F0008A18C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		D4580D9F1C6D1C830008A18C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		D4580DA01C6D1C880008A18C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D4580DA11C6D292D0008A18C /* DK Buttered Toast.otf */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,6 +185,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D400C2A31C6B25CF00A26019 /* LaunchScreen.storyboard in Resources */,
+				D4580DA21C6D292D0008A18C /* DK Buttered Toast.otf in Resources */,
 				D400C2A01C6B25CF00A26019 /* Assets.xcassets in Resources */,
 				D400C29E1C6B25CF00A26019 /* Main.storyboard in Resources */,
 			);
