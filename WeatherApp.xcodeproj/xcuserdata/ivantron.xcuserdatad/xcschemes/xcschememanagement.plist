@@ -9,10 +9,20 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>WeatherWatch.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>D400C2941C6B25CF00A26019</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D4580DAC1C6DA58B0008A18C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
