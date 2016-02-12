@@ -25,8 +25,12 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="ZEh-Mp-WgX">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weather" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rnc-fM-oqE">
-                                <rect key="frame" x="179" y="264" width="243" height="71"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weather" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rnc-fM-oqE">
+                                <rect key="frame" x="121" y="207" width="358" height="186"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="358" id="A2t-hn-6We"/>
+                                    <constraint firstAttribute="height" constant="186" id="XJy-6P-oR6"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="DKButteredToast" family="DK Buttered Toast" pointSize="70"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -34,14 +38,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Rnc-fM-oqE" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="244" id="0R3-o7-5nC"/>
                             <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="ZEh-Mp-WgX" secondAttribute="bottom" id="6Dw-tb-IgR"/>
-                            <constraint firstAttribute="trailing" secondItem="Rnc-fM-oqE" secondAttribute="trailing" constant="178" id="7eh-ic-8S3"/>
                             <constraint firstItem="ZEh-Mp-WgX" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="8Au-Q4-IhA"/>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="Rnc-fM-oqE" secondAttribute="bottom" constant="265" id="Jgv-r9-qn7"/>
+                            <constraint firstItem="Rnc-fM-oqE" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="DJb-yE-uEH"/>
                             <constraint firstItem="ZEh-Mp-WgX" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="NPR-oi-NQb"/>
                             <constraint firstAttribute="trailing" secondItem="ZEh-Mp-WgX" secondAttribute="trailing" id="OrB-yj-0oL"/>
-                            <constraint firstItem="Rnc-fM-oqE" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="179" id="cra-Mb-5W3"/>
+                            <constraint firstItem="Rnc-fM-oqE" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="187" id="h4W-T1-e6c"/>
                         </constraints>
                     </view>
                 </viewController>
