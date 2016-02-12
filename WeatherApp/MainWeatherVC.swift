@@ -11,16 +11,25 @@ import UIKit
 class MainWeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var dayOfTheWeekLabel: UILabel!
+    @IBOutlet weak var dateOfTheWeekLabel: UILabel!
+    @IBOutlet weak var weatherPictureImg: UIImageView!
+    @IBOutlet weak var dayTempLabel: UILabel!
+    @IBOutlet weak var dayDescription: UILabel!
     
     var weatherFive : Weather!
+    
+    //MARK -LifeCycle of the App
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        
         tableView.estimatedRowHeight = 60
     }
+    
+    //MARK - Table View Delegates
+    
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -42,6 +51,21 @@ class MainWeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 60
     }
+    
+    @IBAction func changeLocationButtonTapped(sender: AnyObject) {
+        performSegueWithIdentifier("locationWeather", sender: nil)
+        
+    }
+    
+    @IBAction func refreshButtonTapped(sender: AnyObject) {
+        refreshWeatherStats()
+    }
+    
+    
+    func refreshWeatherStats() {
+        
+    }
+
     
    
     

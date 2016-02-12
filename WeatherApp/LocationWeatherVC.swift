@@ -9,5 +9,21 @@
 import UIKit
 
 class LocationWeatherVC: UIViewController {
+    
+    @IBOutlet weak var locationInputBox: UITextField!
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+    
+    @IBAction func showWeatherButtonTapped(sender: AnyObject) {
+       performSegueWithIdentifier("MainWeather", sender: nil)
+    }
+    
 
 }
