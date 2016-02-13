@@ -235,11 +235,11 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" name="DKButteredToast" family="DK Buttered Toast" pointSize="20"/>
                                 <state key="normal" title="Continue">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="showWeatherButtonTapped:" destination="cTm-ki-tuW" eventType="touchUpInside" id="fC7-5U-NbG"/>
-                                    <segue destination="BYZ-38-t0r" kind="presentation" identifier="MainWeather" id="PnE-2d-WUc"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="MainWeather" id="k5o-Ob-P5S"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Eg. Hamilton, ON" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kcq-lc-XWW">
@@ -275,7 +275,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qZT-fp-MdJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-260" y="1047"/>
+            <point key="canvasLocation" x="-293" y="1047"/>
         </scene>
     </scenes>
     <resources>

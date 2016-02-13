@@ -21,8 +21,16 @@ class LocationWeatherVC: UIViewController {
         super.viewDidAppear(animated)
     }
     
-    @IBAction func showWeatherButtonTapped(sender: AnyObject) {
-       performSegueWithIdentifier("MainWeather", sender: nil)
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "MainWeather" {
+            if let mainWeather = segue.destinationViewController as? MainWeatherVC {
+                if let weather = sender as? Weather {
+                    mainWeather.weatherDay = weather
+                    mainWeather.weatherFive = weather
+                }
+            }
+            
+        }
     }
     
 

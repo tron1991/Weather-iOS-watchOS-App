@@ -18,6 +18,7 @@ class MainWeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     @IBOutlet weak var dayDescription: UILabel!
     
     var weatherFive : Weather!
+    var weatherDay: Weather!
     
     //MARK -LifeCycle of the App
     
