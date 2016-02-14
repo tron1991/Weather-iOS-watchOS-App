@@ -41,5 +41,7 @@
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Give us permission to use your device&apos;s location for the weather</string>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
 </dict>
 </plist>

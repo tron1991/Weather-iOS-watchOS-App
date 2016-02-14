@@ -11,28 +11,17 @@ import Alamofire
 
 class Weather {
     
-    private var _todayDate: String!
     private var _todayWeatherPic: String!
     private var _todayTemp: String!
     private var _todayDescription: String!
-    private var _fiveDayWeatherPic: String!
-    private var _fiveDayDate: String!
-    private var _fiveDayDescription: String!
-    private var _fiveDayTemp: String!
     private var _weatherUrl: String!
     private var _weatherLocationLat: Double!
     private var _weatherLocationLong: Double!
     
+    private var _day: String!
+    private var _date: String!
+    private var _time: String!
     
-    
-    var todayDate : String {
-        get {
-            if _todayDate == nil {
-            _todayDate = ""
-        }
-        return _todayDate
-        }
-    }
     
     var todayWeatherPic: String {
         get {
@@ -61,41 +50,31 @@ class Weather {
         }
     }
     
-    var fiveDayWeatherPic: String {
+    var day: String {
         get {
-        if _fiveDayWeatherPic == nil {
-            _fiveDayWeatherPic = ""
-        }
-        return _fiveDayWeatherPic
+            if _day == nil {
+                _day = ""
+            }
+            return _day
         }
     }
     
-    var fiveDayDate: String {
+    var date: String {
         get {
-        if _fiveDayDate == nil {
-            _fiveDayDate = ""
-        }
-        return _fiveDayDate
+            if _date == nil {
+                _date = ""
+            }
+            return _date
         }
     }
     
-    var fiveDayDescription: String {
+    var time: String {
         get {
-        if _fiveDayDescription == nil {
-            _fiveDayDescription = ""
+            if _time == nil {
+                _time = ""
+            }
+            return _time
         }
-        return _fiveDayDescription
-        }
-    }
-    
-    var fiveDayTemp: String {
-        get {
-        if _fiveDayTemp == nil {
-            _fiveDayTemp = ""
-        }
-        return _fiveDayTemp
-        }
-      
     }
     
     var weatherLocationLat: Double {
@@ -123,6 +102,26 @@ class Weather {
         
     }
     
+    
+//    func setImageForWeather(weatherImage: String) -> String {
+//        
+//        switch weatherImage {
+//        case "Rain":
+//            return "Rain"
+//        case "Snow":
+//            return "Snow"
+//        case "Clear":
+//            return "Clear"
+//        case "Clouds":
+//            return "Clouds"
+//        case "Mist":
+//            return "Mist"
+//        default:
+//            return "Start"
+//        }
+//        
+//    }
+    
     func downloadWeatherDetails(completed: DownloadComplete) {
         
         let url = NSURL(string: self._weatherUrl)!
@@ -145,10 +144,29 @@ class Weather {
                     }
                 }
                 
+                
+                if let dt = dict["dt"] as? Double {
+                    let date = NSDate(timeIntervalSince1970: dt)
+                    let dayFormatter = NSDateFormatter()
+                    let dateFormatter = NSDateFormatter()
+                    let timeFormatter = NSDateFormatter()
+                    dayFormatter.dateFormat = "EEEE"
+                    dateFormatter.dateStyle = NSDateFormatterStyle.LongStyle
+                    timeFormatter.dateFormat = "h:mm a"
+                    self._day = dayFormatter.stringFromDate(date)
+                    self._date = dateFormatter.stringFromDate(date)
+                    self._time = timeFormatter.stringFromDate(date)
+                    print(self._day)
+                    print(self._date)
+                    print(self._time)
+                    
+                }
+
+                
                 if let wTemp = dict["main"] as? Dictionary<String, AnyObject> {
                     
                     if let temp = wTemp["temp"] as? Double {
-                        self._todayTemp = NSString(format: "%.0f", temp-270) as String
+                        self._todayTemp = NSString(format: "%.0f", temp-273.15) as String
                     }
                 }
             }

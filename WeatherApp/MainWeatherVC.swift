@@ -29,6 +29,8 @@ class MainWeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         tableView.dataSource = self
         tableView.estimatedRowHeight = 60
         
+        //UIApplication.sharedApplication().statusBarStyle = .LightContent
+        
         // request the current location
         manager = OneShotLocationManager()
         manager!.fetchWithCompletion {location, error in
@@ -36,8 +38,8 @@ class MainWeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
             // fetch location or an error
             if let loc = location {
                 self.weatherToday = Weather(locationLat: loc.coordinate.latitude, locationLong: loc.coordinate.longitude)
-                print("\(self.weatherToday.weatherLocationLat)")
-                print("\(self.weatherToday.weatherLocationLong)")
+                //print("\(self.weatherToday.weatherLocationLat)")
+                //print("\(self.weatherToday.weatherLocationLong)")
                 
                 self.weatherToday.downloadWeatherDetails { () -> () in
                    self.updateMainUI()
@@ -59,8 +61,10 @@ class MainWeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     func updateMainUI() {
         self.weatherPictureImg.image = UIImage(named: weatherToday.todayWeatherPic)
-        self.dayTempLabel.text = weatherToday.todayTemp
+        self.dayTempLabel.text = weatherToday.todayTemp + "°C"
         self.dayDescription.text = weatherToday.todayDescription
+        self.dayOfTheWeekLabel.text = weatherToday.day
+        self.dateOfTheWeekLabel.text = weatherToday.date
     }
     
     //MARK - Table View Delegates
