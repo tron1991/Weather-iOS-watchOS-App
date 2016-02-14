@@ -12,26 +12,29 @@ class LocationWeatherVC: UIViewController {
     
     @IBOutlet weak var locationInputBox: UITextField!
     
+    var weather : Weather!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+
+       weather = Weather(location: locationInputBox.text!)
+        
     }
+    
+    
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "MainWeather" {
-            if let mainWeather = segue.destinationViewController as? MainWeatherVC {
-                if let weather = sender as? Weather {
-                    mainWeather.weatherDay = weather
-                    mainWeather.weatherFive = weather
-                }
-            }
-            
-        }
+    @IBAction func buttonTapped(sender: AnyObject) {
+      performSegueWithIdentifier("MainWeatherVC", sender: nil)
     }
     
-
+    
+    
 }
+    
+
+

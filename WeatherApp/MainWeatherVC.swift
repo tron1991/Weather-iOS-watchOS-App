@@ -17,8 +17,8 @@ class MainWeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     @IBOutlet weak var dayTempLabel: UILabel!
     @IBOutlet weak var dayDescription: UILabel!
     
-    var weatherFive : Weather!
-    var weatherDay: Weather!
+    
+    var weather : Weather!
     
     //MARK -LifeCycle of the App
     
@@ -27,6 +27,18 @@ class MainWeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         tableView.delegate = self
         tableView.dataSource = self
         tableView.estimatedRowHeight = 60
+        
+        weather.downloadWeatherDetails { () -> () in
+            //self.updateMainUI()
+        }
+        
+        
+    }
+    
+    func updateMainUI() {
+        self.weatherPictureImg.image = UIImage(named: weather.todayWeatherPic)
+        self.dayTempLabel.text = "\(weather.todayTemp)"
+        self.dayDescription.text = weather.todayDescription
     }
     
     //MARK - Table View Delegates
@@ -66,10 +78,4 @@ class MainWeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     func refreshWeatherStats() {
         
     }
-
-    
-   
-    
-    
-
 }

@@ -238,8 +238,8 @@
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="showWeatherButtonTapped:" destination="cTm-ki-tuW" eventType="touchUpInside" id="fC7-5U-NbG"/>
-                                    <segue destination="BYZ-38-t0r" kind="show" identifier="MainWeather" id="k5o-Ob-P5S"/>
+                                    <action selector="buttonTapped:" destination="cTm-ki-tuW" eventType="touchUpInside" id="zT5-M5-OS1"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="MainWeatherVC" id="diP-gS-Kev"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Eg. Hamilton, ON" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kcq-lc-XWW">

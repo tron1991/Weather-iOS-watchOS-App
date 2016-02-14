@@ -8,11 +8,13 @@
 
 import Foundation
 
-let URL_BASE = "http://http://api.openweathermap.org"
-let URL_WEATHER = "/data/2.5/"
+let URL_BASE = "http://api.openweathermap.org/data/2.5"
+let URL_WEATHER = "/weather?q="
+let URL_FIVE_WEATHER = "/forecast?q="
+let URL_OWEATHER_API_KEY = "&appid=cbcfc1b399b26bcabcfe728f0925dc2d"
 
 
-//api.openweathermap.org/data/2.5/
+typealias DownloadComplete = () -> ()
 
-//the format for the string
-//weather?q=London
+//api.openweathermap.org/data/2.5/weather?q=London&appid=cbcfc1b399b26bcabcfe728f0925dc2d
+//api.openweathermap.org/data/2.5/forecast?q=London&appid=cbcfc1b399b26bcabcfe728f0925dc2d
