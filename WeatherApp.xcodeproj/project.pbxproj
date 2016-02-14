@@ -14,7 +14,6 @@
 		D400C2A31C6B25CF00A26019 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D400C2A11C6B25CF00A26019 /* LaunchScreen.storyboard */; };
 		D4580DA21C6D292D0008A18C /* DK Buttered Toast.otf in Resources */ = {isa = PBXBuildFile; fileRef = D4580DA11C6D292D0008A18C /* DK Buttered Toast.otf */; };
 		D4580DA41C6D2A710008A18C /* MainWeatherVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4580DA31C6D2A710008A18C /* MainWeatherVC.swift */; };
-		D4580DA61C6D2A820008A18C /* LocationWeatherVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4580DA51C6D2A820008A18C /* LocationWeatherVC.swift */; };
 		D4580DA81C6D56780008A18C /* WeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4580DA71C6D56780008A18C /* WeatherCell.swift */; };
 		D4580DAA1C6D5B0A0008A18C /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4580DA91C6D5B0A0008A18C /* Weather.swift */; };
 		D4580DB11C6DA58B0008A18C /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4580DAF1C6DA58B0008A18C /* Interface.storyboard */; };
@@ -25,6 +24,7 @@
 		D4580DC31C6DA58C0008A18C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4580DC21C6DA58C0008A18C /* Assets.xcassets */; };
 		D4580DC71C6DA58C0008A18C /* WeatherWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = D4580DAD1C6DA58B0008A18C /* WeatherWatch.app */; };
 		D4580DD11C6FC0E00008A18C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4580DD01C6FC0E00008A18C /* Constants.swift */; };
+		D4580DD81C7120740008A18C /* OneShotLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4580DD71C7120740008A18C /* OneShotLocationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,7 +81,6 @@
 		D400C2A41C6B25CF00A26019 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4580DA11C6D292D0008A18C /* DK Buttered Toast.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DK Buttered Toast.otf"; sourceTree = "<group>"; };
 		D4580DA31C6D2A710008A18C /* MainWeatherVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainWeatherVC.swift; sourceTree = "<group>"; };
-		D4580DA51C6D2A820008A18C /* LocationWeatherVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationWeatherVC.swift; sourceTree = "<group>"; };
 		D4580DA71C6D56780008A18C /* WeatherCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherCell.swift; sourceTree = "<group>"; };
 		D4580DA91C6D5B0A0008A18C /* Weather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		D4580DAD1C6DA58B0008A18C /* WeatherWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -94,6 +93,8 @@
 		D4580DC21C6DA58C0008A18C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D4580DC41C6DA58C0008A18C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D4580DD01C6FC0E00008A18C /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		D4580DD31C711DFF0008A18C /* WeatherWatch-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WeatherWatch-Bridging-Header.h"; sourceTree = "<group>"; };
+		D4580DD71C7120740008A18C /* OneShotLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneShotLocationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +158,7 @@
 		D400C2971C6B25CF00A26019 /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				D4580DD21C711DD50008A18C /* WeatherLocation */,
 				D4580DA01C6D1C880008A18C /* Resources */,
 				D4580D9F1C6D1C830008A18C /* Model */,
 				D4580D9E1C6D1C7F0008A18C /* Controller */,
@@ -174,7 +176,6 @@
 			isa = PBXGroup;
 			children = (
 				D4580DA31C6D2A710008A18C /* MainWeatherVC.swift */,
-				D4580DA51C6D2A820008A18C /* LocationWeatherVC.swift */,
 				D4580DA71C6D56780008A18C /* WeatherCell.swift */,
 			);
 			name = View;
@@ -223,6 +224,15 @@
 				D4580DC41C6DA58C0008A18C /* Info.plist */,
 			);
 			path = "WeatherWatch Extension";
+			sourceTree = "<group>";
+		};
+		D4580DD21C711DD50008A18C /* WeatherLocation */ = {
+			isa = PBXGroup;
+			children = (
+				D4580DD71C7120740008A18C /* OneShotLocationManager.swift */,
+				D4580DD31C711DFF0008A18C /* WeatherWatch-Bridging-Header.h */,
+			);
+			name = WeatherLocation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -409,10 +419,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4580DA61C6D2A820008A18C /* LocationWeatherVC.swift in Sources */,
 				D4580DA41C6D2A710008A18C /* MainWeatherVC.swift in Sources */,
 				D4580DA81C6D56780008A18C /* WeatherCell.swift in Sources */,
 				D4580DAA1C6D5B0A0008A18C /* Weather.swift in Sources */,
+				D4580DD81C7120740008A18C /* OneShotLocationManager.swift in Sources */,
 				D400C2991C6B25CF00A26019 /* AppDelegate.swift in Sources */,
 				D4580DD11C6FC0E00008A18C /* Constants.swift in Sources */,
 			);
@@ -607,13 +617,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				IBSC_MODULE = WeatherWatch_Extension;
 				INFOPLIST_FILE = WeatherWatch/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nicholasivanecky.WeatherApp.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "WeatherApp/WeatherWatch-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 2.1;
 			};
@@ -623,13 +637,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				IBSC_MODULE = WeatherWatch_Extension;
 				INFOPLIST_FILE = WeatherWatch/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nicholasivanecky.WeatherApp.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "WeatherApp/WeatherWatch-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 2.1;
 			};

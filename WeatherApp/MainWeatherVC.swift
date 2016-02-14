@@ -17,8 +17,9 @@ class MainWeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     @IBOutlet weak var dayTempLabel: UILabel!
     @IBOutlet weak var dayDescription: UILabel!
     
+     var manager: OneShotLocationManager?
     
-    var weather : Weather!
+    var weatherToday : Weather!
     
     //MARK -LifeCycle of the App
     
@@ -28,17 +29,38 @@ class MainWeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         tableView.dataSource = self
         tableView.estimatedRowHeight = 60
         
-        weather.downloadWeatherDetails { () -> () in
-            //self.updateMainUI()
+        
+        //
+        // request the current location
+        //
+        manager = OneShotLocationManager()
+        manager!.fetchWithCompletion {location, error in
+            
+            // fetch location or an error
+            if let loc = location {
+                self.weatherToday = Weather(locationLat: loc.coordinate.latitude, locationLong: loc.coordinate.longitude)
+                print(loc.coordinate.latitude)
+            } else if let err = error {
+                print(err.localizedDescription)
+            }
+            
+            // destroy the object immediately to save memory
+            self.manager = nil
         }
+        
+//        weatherToday.downloadWeatherDetails { () -> () in
+//            
+//            self.updateMainUI()
+//        }
         
         
     }
     
     func updateMainUI() {
-        self.weatherPictureImg.image = UIImage(named: weather.todayWeatherPic)
-        self.dayTempLabel.text = "\(weather.todayTemp)"
-        self.dayDescription.text = weather.todayDescription
+        self.weatherPictureImg.image = UIImage(named: weatherToday.todayWeatherPic)
+        print(weatherToday.todayTemp)
+        self.dayTempLabel.text = weatherToday.todayTemp
+        self.dayDescription.text = weatherToday.todayDescription
     }
     
     //MARK - Table View Delegates
@@ -64,11 +86,7 @@ class MainWeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 60
     }
-    
-    @IBAction func changeLocationButtonTapped(sender: AnyObject) {
-        performSegueWithIdentifier("locationWeather", sender: nil)
-        
-    }
+
     
     @IBAction func refreshButtonTapped(sender: AnyObject) {
         refreshWeatherStats()
@@ -76,6 +94,8 @@ class MainWeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     
     func refreshWeatherStats() {
-        
+        weatherToday.downloadWeatherDetails { () -> () in
+            self.updateMainUI()
+        }
     }
 }

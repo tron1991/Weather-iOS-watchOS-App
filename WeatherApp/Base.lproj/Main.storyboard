@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="cTm-ki-tuW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="DK Buttered Toast.otf">
-            <string>DKButteredToast</string>
-            <string>DKButteredToast</string>
             <string>DKButteredToast</string>
             <string>DKButteredToast</string>
             <string>DKButteredToast</string>
@@ -41,10 +38,6 @@
                                     <constraint firstAttribute="width" constant="22" id="xto-y7-fyo"/>
                                 </constraints>
                                 <state key="normal" image="Add"/>
-                                <connections>
-                                    <action selector="changeLocationButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bI7-X0-e4e"/>
-                                    <segue destination="cTm-ki-tuW" kind="show" identifier="locationWeather" id="7iQ-cP-GI6"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f6r-z4-8jq">
                                 <rect key="frame" x="558" y="31" width="22" height="22"/>
@@ -87,7 +80,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aDc-N5-Xza">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aDc-N5-Xza">
                                 <rect key="frame" x="0.0" y="315" width="600" height="285"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -95,7 +88,7 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eeR-fF-IgU" id="VKd-zW-f8v">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="59"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="Ob1-dj-ivC">
@@ -202,86 +195,10 @@
             </objects>
             <point key="canvasLocation" x="401" y="1047"/>
         </scene>
-        <!--Location WeatherVC-->
-        <scene sceneID="Ffa-S1-lRu">
-            <objects>
-                <viewController id="cTm-ki-tuW" customClass="LocationWeatherVC" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Azn-Rm-Q0b"/>
-                        <viewControllerLayoutGuide type="bottom" id="SKk-nm-eX5"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="x8c-VA-uXQ">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background_2" translatesAutoresizingMaskIntoConstraints="NO" id="bMv-5T-nJV">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What is your location?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VPM-fb-AVh">
-                                <rect key="frame" x="169" y="136" width="263" height="98"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="263" id="Sl1-Sc-Kyu"/>
-                                    <constraint firstAttribute="height" constant="98" id="psd-y2-FPG"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="DKButteredToast" family="DK Buttered Toast" pointSize="45"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FyO-OX-Mxd">
-                                <rect key="frame" x="20" y="348" width="560" height="30"/>
-                                <color key="backgroundColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.95294117649999999" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="soj-xV-dfy"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="DKButteredToast" family="DK Buttered Toast" pointSize="20"/>
-                                <state key="normal" title="Continue">
-                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="buttonTapped:" destination="cTm-ki-tuW" eventType="touchUpInside" id="zT5-M5-OS1"/>
-                                    <segue destination="BYZ-38-t0r" kind="show" identifier="MainWeatherVC" id="diP-gS-Kev"/>
-                                </connections>
-                            </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Eg. Hamilton, ON" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kcq-lc-XWW">
-                                <rect key="frame" x="20" y="285" width="560" height="30"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="58V-mt-eEk"/>
-                                </constraints>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="SKk-nm-eX5" firstAttribute="top" secondItem="bMv-5T-nJV" secondAttribute="bottom" id="3Ak-ed-uqO"/>
-                            <constraint firstItem="kcq-lc-XWW" firstAttribute="leading" secondItem="x8c-VA-uXQ" secondAttribute="leadingMargin" id="LZO-kl-y0P"/>
-                            <constraint firstAttribute="trailing" secondItem="FyO-OX-Mxd" secondAttribute="trailing" constant="20" id="MzE-Kb-yia"/>
-                            <constraint firstItem="kcq-lc-XWW" firstAttribute="top" secondItem="VPM-fb-AVh" secondAttribute="bottom" constant="51" id="Oxj-i6-8mX"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="kcq-lc-XWW" secondAttribute="trailing" id="WUJ-Pm-Jjm"/>
-                            <constraint firstItem="FyO-OX-Mxd" firstAttribute="top" secondItem="kcq-lc-XWW" secondAttribute="bottom" constant="33" id="Wj9-5p-qkA"/>
-                            <constraint firstItem="VPM-fb-AVh" firstAttribute="top" secondItem="Azn-Rm-Q0b" secondAttribute="bottom" constant="116" id="Yds-eo-hNm"/>
-                            <constraint firstItem="VPM-fb-AVh" firstAttribute="centerX" secondItem="x8c-VA-uXQ" secondAttribute="centerX" id="cqp-hu-yec"/>
-                            <constraint firstItem="bMv-5T-nJV" firstAttribute="leading" secondItem="x8c-VA-uXQ" secondAttribute="leading" id="dFJ-uf-48M"/>
-                            <constraint firstItem="bMv-5T-nJV" firstAttribute="top" secondItem="x8c-VA-uXQ" secondAttribute="top" id="qFi-ZR-vJL"/>
-                            <constraint firstItem="FyO-OX-Mxd" firstAttribute="leading" secondItem="x8c-VA-uXQ" secondAttribute="leading" constant="20" id="qMj-VJ-ByV"/>
-                            <constraint firstAttribute="trailing" secondItem="bMv-5T-nJV" secondAttribute="trailing" id="sQb-bZ-OkA"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="locationInputBox" destination="kcq-lc-XWW" id="SjZ-tN-7DG"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qZT-fp-MdJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-293" y="1047"/>
-        </scene>
     </scenes>
     <resources>
         <image name="Add" width="44" height="44"/>
         <image name="Background" width="750" height="1334"/>
-        <image name="Background_2" width="750" height="1334"/>
         <image name="Refresh" width="44" height="44"/>
         <image name="cloud_100" width="128" height="128"/>
         <image name="raindrops_35" width="32" height="32"/>

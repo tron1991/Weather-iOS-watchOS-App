@@ -13,14 +13,15 @@ class Weather {
     
     private var _todayDate: String!
     private var _todayWeatherPic: String!
-    private var _todayTemp: Double!
+    private var _todayTemp: String!
     private var _todayDescription: String!
     private var _fiveDayWeatherPic: String!
     private var _fiveDayDate: String!
     private var _fiveDayDescription: String!
     private var _fiveDayTemp: String!
     private var _weatherUrl: String!
-    private var _weatherLocation: String!
+    private var _weatherLocationLat: Double!
+    private var _weatherLocationLong: Double!
     
     
     
@@ -42,10 +43,10 @@ class Weather {
         }
     }
     
-    var todayTemp: Double {
+    var todayTemp: String {
         get {
         if _todayTemp == nil {
-            _todayTemp = 0.0
+            _todayTemp = ""
         }
         return _todayTemp
         }
@@ -97,27 +98,38 @@ class Weather {
       
     }
     
-    var weatherLocation: String {
+    var weatherLocationLat: Double {
         get {
-        if _weatherLocation == nil {
-            _weatherLocation = ""
+        if _weatherLocationLat == nil {
+            _weatherLocationLat = 0.0
         }
-        return _weatherLocation
+        return _weatherLocationLat
         }
     }
     
-    init(location: String) {
-        self._weatherLocation = "London"
-        _weatherUrl = "\(URL_BASE)\(URL_WEATHER)\(self._weatherLocation)\(URL_OWEATHER_API_KEY)"
+    var weatherLocationLong: Double {
+        get {
+            if _weatherLocationLong == nil {
+                _weatherLocationLong = 0.0
+            }
+            return _weatherLocationLong
+        }
+    }
+    
+    init(locationLat: Double, locationLong: Double) {
+        self._weatherLocationLong = 0.0
+        self._weatherLocationLat = 0.0
+        _weatherUrl = "\(URL_BASE)\(URL_WEATHER_LAT)\(self._weatherLocationLat)\(URL_WEATHER_LONG)\(self._weatherLocationLong)\(URL_OWEATHER_API_KEY)"
         
     }
     
     func downloadWeatherDetails(completed: DownloadComplete) {
         
         let url = NSURL(string: self._weatherUrl)!
+       
         Alamofire.request(.GET, url).responseJSON { response in
             let result = response.result
-            
+            print(result.error?.description)
             if let dict = result.value as? Dictionary<String, AnyObject> {
                 
                 if let wDesc = dict["weather"] as? [Dictionary<String, AnyObject>] where wDesc.count > 0 {
@@ -139,11 +151,11 @@ class Weather {
                 
                 if let wTemp = dict["main"] as? [Dictionary<String, AnyObject>] where wTemp.count > 0 {
                     
-                    if let temp = wTemp[0]["temp"] as? Double {
+                    if let temp = wTemp[0]["temp"] as? String {
                         self._todayTemp = temp
                     }
                 } else {
-                    self._todayTemp = 0.0
+                    self._todayTemp = ""
                 }
             }
             
