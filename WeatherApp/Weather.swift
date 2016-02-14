@@ -117,8 +117,8 @@ class Weather {
     }
     
     init(locationLat: Double, locationLong: Double) {
-        self._weatherLocationLong = 0.0
-        self._weatherLocationLat = 0.0
+        self._weatherLocationLong = locationLong
+        self._weatherLocationLat = locationLat
         _weatherUrl = "\(URL_BASE)\(URL_WEATHER_LAT)\(self._weatherLocationLat)\(URL_WEATHER_LONG)\(self._weatherLocationLong)\(URL_OWEATHER_API_KEY)"
         
     }
@@ -126,10 +126,9 @@ class Weather {
     func downloadWeatherDetails(completed: DownloadComplete) {
         
         let url = NSURL(string: self._weatherUrl)!
-       
         Alamofire.request(.GET, url).responseJSON { response in
             let result = response.result
-            print(result.error?.description)
+            
             if let dict = result.value as? Dictionary<String, AnyObject> {
                 
                 if let wDesc = dict["weather"] as? [Dictionary<String, AnyObject>] where wDesc.count > 0 {
@@ -144,18 +143,13 @@ class Weather {
                     if let wPic = wDesc[0]["main"] as? String {
                             self._todayWeatherPic = wPic
                     }
-                } else {
-                    self._todayDescription = ""
-                    self._todayWeatherPic = ""
                 }
                 
-                if let wTemp = dict["main"] as? [Dictionary<String, AnyObject>] where wTemp.count > 0 {
+                if let wTemp = dict["main"] as? Dictionary<String, AnyObject> {
                     
-                    if let temp = wTemp[0]["temp"] as? String {
-                        self._todayTemp = temp
+                    if let temp = wTemp["temp"] as? Double {
+                        self._todayTemp = NSString(format: "%.0f", temp-270) as String
                     }
-                } else {
-                    self._todayTemp = ""
                 }
             }
             

@@ -29,17 +29,21 @@ class MainWeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         tableView.dataSource = self
         tableView.estimatedRowHeight = 60
         
-        
-        //
         // request the current location
-        //
         manager = OneShotLocationManager()
         manager!.fetchWithCompletion {location, error in
             
             // fetch location or an error
             if let loc = location {
                 self.weatherToday = Weather(locationLat: loc.coordinate.latitude, locationLong: loc.coordinate.longitude)
-                print(loc.coordinate.latitude)
+                print("\(self.weatherToday.weatherLocationLat)")
+                print("\(self.weatherToday.weatherLocationLong)")
+                
+                self.weatherToday.downloadWeatherDetails { () -> () in
+                   self.updateMainUI()
+                }
+                
+                
             } else if let err = error {
                 print(err.localizedDescription)
             }
@@ -48,17 +52,13 @@ class MainWeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
             self.manager = nil
         }
         
-//        weatherToday.downloadWeatherDetails { () -> () in
-//            
-//            self.updateMainUI()
-//        }
+  
         
         
     }
     
     func updateMainUI() {
         self.weatherPictureImg.image = UIImage(named: weatherToday.todayWeatherPic)
-        print(weatherToday.todayTemp)
         self.dayTempLabel.text = weatherToday.todayTemp
         self.dayDescription.text = weatherToday.todayDescription
     }
@@ -94,8 +94,8 @@ class MainWeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     
     func refreshWeatherStats() {
-        weatherToday.downloadWeatherDetails { () -> () in
-            self.updateMainUI()
-        }
+//        weatherToday.downloadWeatherDetails { () -> () in
+//            self.updateMainUI()
+//        }
     }
 }
