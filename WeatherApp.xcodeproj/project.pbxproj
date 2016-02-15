@@ -25,6 +25,7 @@
 		D4580DC71C6DA58C0008A18C /* WeatherWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = D4580DAD1C6DA58B0008A18C /* WeatherWatch.app */; };
 		D4580DD11C6FC0E00008A18C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4580DD01C6FC0E00008A18C /* Constants.swift */; };
 		D4580DD81C7120740008A18C /* OneShotLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4580DD71C7120740008A18C /* OneShotLocationManager.swift */; };
+		D4580DDC1C72475D0008A18C /* DK Buttered Toast.otf in Resources */ = {isa = PBXBuildFile; fileRef = D4580DDB1C72475D0008A18C /* DK Buttered Toast.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +98,7 @@
 		D4580DD71C7120740008A18C /* OneShotLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneShotLocationManager.swift; sourceTree = "<group>"; };
 		D4580DD91C716F7D0008A18C /* WeatherApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = WeatherApp.entitlements; sourceTree = "<group>"; };
 		D4580DDA1C7174830008A18C /* WeatherWatch Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "WeatherWatch Extension.entitlements"; sourceTree = "<group>"; };
+		D4580DDB1C72475D0008A18C /* DK Buttered Toast.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "DK Buttered Toast.otf"; path = "WeatherWatch Extension/DK Buttered Toast.otf"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				D4580DAF1C6DA58B0008A18C /* Interface.storyboard */,
+				D4580DDB1C72475D0008A18C /* DK Buttered Toast.otf */,
 				D4580DB21C6DA58B0008A18C /* Assets.xcassets */,
 				D4580DB41C6DA58B0008A18C /* Info.plist */,
 			);
@@ -377,6 +380,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4580DC31C6DA58C0008A18C /* Assets.xcassets in Resources */,
+				D4580DDC1C72475D0008A18C /* DK Buttered Toast.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

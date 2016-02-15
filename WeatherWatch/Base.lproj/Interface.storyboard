@@ -4,30 +4,30 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="9515"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <mutableArray key="DK Buttered Toast.otf">
-            <string>DKButteredToast</string>
-            <string>DKButteredToast</string>
-            <string>DKButteredToast</string>
-        </mutableArray>
-    </customFonts>
     <scenes>
         <!--Interface Controller-->
         <scene sceneID="aou-V4-d1y">
             <objects>
                 <controller contentMode="scaleAspectFill" spacing="5" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="WeatherWatch" customModuleProvider="target">
                     <items>
-                        <imageView width="46" alignment="center" image="Snow" contentMode="scaleAspectFill" id="OGx-H8-Zpd"/>
-                        <label width="46" alignment="center" text="9C" textAlignment="center" id="hap-3K-1qo">
-                            <fontDescription key="font" name="DKButteredToast" family="DK Buttered Toast" pointSize="24"/>
+                        <imageView width="40" height="32" alignment="center" image="cloud_35" contentMode="scaleAspectFill" initiallyAnimated="NO" animationDuration="1" id="OGx-H8-Zpd">
+                            <color key="tintColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </imageView>
+                        <label width="59" height="22.5" alignment="center" text="9C" textAlignment="center" baselineAdjustment="alignCenters" id="hap-3K-1qo">
+                            <color key="textColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="font" type="system" weight="light" pointSize="22"/>
                         </label>
-                        <label alignment="left" text="March 9" id="rbe-sf-qHT">
-                            <fontDescription key="font" name="DKButteredToast" family="DK Buttered Toast" pointSize="16"/>
+                        <label width="122.5" alignment="left" text="Cloudy with Rain" textAlignment="left" id="wmI-X2-UbT">
+                            <color key="textColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="font" type="system" weight="light" pointSize="15"/>
                         </label>
-                        <label alignment="left" text="Cloudy with Rain" id="wmI-X2-UbT">
-                            <fontDescription key="font" name="DKButteredToast" family="DK Buttered Toast" pointSize="16"/>
+                        <label width="121.5" height="21.5" alignment="left" text="March 9" textAlignment="left" id="rbe-sf-qHT">
+                            <color key="textColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="font" type="system" weight="light" pointSize="15"/>
                         </label>
-                        <button width="1" alignment="left" title="Refresh" id="hPV-ez-oda">
+                        <button width="1" height="32.5" alignment="left" title="Refresh" id="hPV-ez-oda">
+                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="refreshWeather" destination="AgC-eL-Hgc" id="htE-KE-HqH"/>
                             </connections>
@@ -41,7 +41,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="207" y="387"/>
+            <point key="canvasLocation" x="207" y="336"/>
         </scene>
     </scenes>
 </document>

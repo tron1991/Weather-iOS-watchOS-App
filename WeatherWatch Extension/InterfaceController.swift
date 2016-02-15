@@ -19,9 +19,7 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
     @IBOutlet var weathertemp: WKInterfaceLabel!
     
     var session: WCSession!
-    
-    
-    
+
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
     }
@@ -47,32 +45,31 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate {
                 let temp = replyMessage["Temp"] as? String
                     self.weathertemp.setText(temp! + "°C")
                 let pic = replyMessage["Pic"] as? String
-                    self.weatherPic.setImageNamed(pic)
+                    self.weatherPic.setImageNamed(self.setPic(pic!))
                 let day = replyMessage["Day"] as? String
                     self.weatherDay.setText(day)
                 let desc = replyMessage["Desc"] as? String
-                    self.weatherDesc.setText(desc)
+            
+                    self.weatherDesc.setText(desc?.capitalizedString)
             }
             , errorHandler: {error in
                 // catch any errors here
                 print(error)
         })
-        
-
-}
-//        //Swift
-//    func session(session: WCSession, didReceiveMessage message: [String : AnyObject], replyHandler: ([String : AnyObject]) -> Void) {
-//        
-//        let value = message["Temp"] as? String
-//        
-//        dispatch_async(dispatch_get_main_queue()) {
-//            self.weathertemp.setText(value)
-//        }
-//        
-//        //send a reply
-//        replyHandler(["Value":"Yes"])
-//        
-//    }
-
-
+    }
+    
+    func setPic(weather: String) -> String {
+        switch weather {
+            case "Clouds":
+                return "cloud_35"
+            case "Rain":
+                return "raindrops_35"
+            case "Snow":
+                return "snow_35"
+            case "Clear":
+                return "sun_35"
+        default:
+                return "sun_35"
+        }
+    }
 }
