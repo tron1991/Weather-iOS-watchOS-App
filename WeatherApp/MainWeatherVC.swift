@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import WatchConnectivity
 
-class MainWeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class MainWeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource, WCSessionDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var dayOfTheWeekLabel: UILabel!
@@ -17,9 +18,12 @@ class MainWeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     @IBOutlet weak var dayTempLabel: UILabel!
     @IBOutlet weak var dayDescription: UILabel!
     
-     var manager: OneShotLocationManager?
-    
+    var manager: OneShotLocationManager?
     var weatherToday : Weather!
+    var weatherFive : Weather!
+    var weatherArr : [Weather]!
+    
+    var session: WCSession!
     
     //MARK -LifeCycle of the App
     
@@ -29,8 +33,11 @@ class MainWeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         tableView.dataSource = self
         tableView.estimatedRowHeight = 60
         
-        //UIApplication.sharedApplication().statusBarStyle = .LightContent
-        
+        if (WCSession.isSupported()) {
+            session = WCSession.defaultSession()
+            session.delegate = self;
+            session.activateSession()
+        }
         // request the current location
         manager = OneShotLocationManager()
         manager!.fetchWithCompletion {location, error in
@@ -38,14 +45,8 @@ class MainWeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
             // fetch location or an error
             if let loc = location {
                 self.weatherToday = Weather(locationLat: loc.coordinate.latitude, locationLong: loc.coordinate.longitude)
-                //print("\(self.weatherToday.weatherLocationLat)")
-                //print("\(self.weatherToday.weatherLocationLong)")
-                
-                self.weatherToday.downloadWeatherDetails { () -> () in
-                   self.updateMainUI()
-                }
-                
-                
+                self.refreshWeatherStats()
+     
             } else if let err = error {
                 print(err.localizedDescription)
             }
@@ -53,10 +54,6 @@ class MainWeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
             // destroy the object immediately to save memory
             self.manager = nil
         }
-        
-  
-        
-        
     }
     
     func updateMainUI() {
@@ -76,15 +73,21 @@ class MainWeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCellWithIdentifier("WeatherCell", forIndexPath: indexPath) as? WeatherCell {
-            //cell.configureCell(weatherFive)
-            cell.fakeCell()
+            
+
+            //self.weatherFive = Weather(fiveDay: "thursday", fivePic: "cloud_35", fiveDesc: "Hello there", fiveTemp: "12")
+           // self.weatherFive.downloadFiveDayWeatherDetails { () -> () in
+           //     cell.configureCell(self.weatherFive)
+           // }
+         
+            //cell.fakeCell()
             return cell
         }
         return UITableViewCell()
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 1
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -98,8 +101,17 @@ class MainWeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     
     func refreshWeatherStats() {
-//        weatherToday.downloadWeatherDetails { () -> () in
-//            self.updateMainUI()
-//        }
+        weatherToday.downloadWeatherDetails { () -> () in
+            self.updateMainUI()
+        }
     }
+    
+    func session(session: WCSession, didReceiveMessage message: [String : AnyObject], replyHandler: ([String : AnyObject]) -> Void) {
+        
+        let data : [String: AnyObject] = ["Temp": weatherToday.todayTemp, "Pic": weatherToday.todayWeatherPic, "Day": weatherToday.date, "Desc": weatherToday.todayDescription]
+        replyHandler(data)
+        
+    }
+    
+
 }

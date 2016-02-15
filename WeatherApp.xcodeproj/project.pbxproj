@@ -95,6 +95,8 @@
 		D4580DD01C6FC0E00008A18C /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D4580DD31C711DFF0008A18C /* WeatherWatch-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WeatherWatch-Bridging-Header.h"; sourceTree = "<group>"; };
 		D4580DD71C7120740008A18C /* OneShotLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneShotLocationManager.swift; sourceTree = "<group>"; };
+		D4580DD91C716F7D0008A18C /* WeatherApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = WeatherApp.entitlements; sourceTree = "<group>"; };
+		D4580DDA1C7174830008A18C /* WeatherWatch Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "WeatherWatch Extension.entitlements"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +160,7 @@
 		D400C2971C6B25CF00A26019 /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				D4580DD91C716F7D0008A18C /* WeatherApp.entitlements */,
 				D4580DD21C711DD50008A18C /* WeatherLocation */,
 				D4580DA01C6D1C880008A18C /* Resources */,
 				D4580D9F1C6D1C830008A18C /* Model */,
@@ -218,6 +221,7 @@
 		D4580DBD1C6DA58C0008A18C /* WeatherWatch Extension */ = {
 			isa = PBXGroup;
 			children = (
+				D4580DDA1C7174830008A18C /* WeatherWatch Extension.entitlements */,
 				D4580DBE1C6DA58C0008A18C /* InterfaceController.swift */,
 				D4580DC01C6DA58C0008A18C /* ExtensionDelegate.swift */,
 				D4580DC21C6DA58C0008A18C /* Assets.xcassets */,
@@ -306,12 +310,24 @@
 				TargetAttributes = {
 					D400C2941C6B25CF00A26019 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = PGD8JYCJHV;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 0;
+							};
+						};
 					};
 					D4580DAC1C6DA58B0008A18C = {
 						CreatedOnToolsVersion = 7.2;
 					};
 					D4580DB81C6DA58C0008A18C = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = PGD8JYCJHV;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -566,10 +582,14 @@
 			baseConfigurationReference = 2C881C4F0DC515390B3FC23F /* Pods-WeatherApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = WeatherApp/WeatherApp.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = WeatherApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nicholasivanecky.WeatherApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -578,20 +598,27 @@
 			baseConfigurationReference = 84560E0AD13FFF02E94FC098 /* Pods-WeatherApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = WeatherApp/WeatherApp.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = WeatherApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nicholasivanecky.WeatherApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
 		D4580DC91C6DA58C0008A18C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "WeatherWatch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nicholasivanecky.WeatherApp.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -602,10 +629,13 @@
 		D4580DCA1C6DA58C0008A18C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "WeatherWatch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nicholasivanecky.WeatherApp.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -680,6 +710,7 @@
 				D4580DCA1C6DA58C0008A18C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D4580DCC1C6DA58C0008A18C /* Build configuration list for PBXNativeTarget "WeatherWatch" */ = {
 			isa = XCConfigurationList;
@@ -688,6 +719,7 @@
 				D4580DCE1C6DA58C0008A18C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

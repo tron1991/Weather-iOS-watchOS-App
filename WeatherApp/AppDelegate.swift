@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import WatchConnectivity
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, WCSessionDelegate{
 
     var window: UIWindow?
 
@@ -18,6 +19,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
        UIApplication.sharedApplication().statusBarStyle = .LightContent
+        
+        if WCSession.isSupported() {
+            let session = WCSession.defaultSession()
+            session.delegate = self
+            session.activateSession()
+        }
         
         return true
     }

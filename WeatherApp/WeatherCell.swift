@@ -18,18 +18,18 @@ class WeatherCell: UITableViewCell {
     var weather: Weather!
     
     func configureCell(weather: Weather) {
-        self.weather = weather
-//        self.fiveWeekDay.text = weather.fiveDayDate
-//        self.fiveDateImage.image = UIImage(named: "\(weather.fiveDayWeatherPic)")
-//        self.fiveDateDescription.text = weather.fiveDayDescription
-//        self.fiveDateTemperature.text = weather.fiveDayTemp
+        //self.weather = weather
+        self.fiveWeekDay.text = weather.weatherFiveDay
+        self.fiveDateImage.image = UIImage(named: "\(weather.weatherFivePic)")
+        self.fiveDateDescription.text = weather.weatherFiveDescription
+        self.fiveDateTemperature.text = weather.weatherFiveTemp
     }
     
     func fakeCell() {
-//        self.fiveWeekDay.text = "Friday"
-//        self.fiveDateImage.image = UIImage(named: "snow_35")
-//        self.fiveDateDescription.text = "Snowy and Cold"
-//        self.fiveDateTemperature.text = "12°C"
+        self.fiveWeekDay.text = "Friday"
+        self.fiveDateImage.image = UIImage(named: "snow_35")
+        self.fiveDateDescription.text = "Snowy and Cold"
+        self.fiveDateTemperature.text = "12°C"
     }
     
 

@@ -15,8 +15,15 @@ class Weather {
     private var _todayTemp: String!
     private var _todayDescription: String!
     private var _weatherUrl: String!
+    private var _forecastUrl: String!
     private var _weatherLocationLat: Double!
     private var _weatherLocationLong: Double!
+    private var _weatherArr = [Weather]()
+    
+    private var _weatherFiveDay: String!
+    private var _weatherFiveTemp: String!
+    private var _weatherFivePic: String!
+    private var _weatherFiveDescription: String!
     
     private var _day: String!
     private var _date: String!
@@ -77,6 +84,42 @@ class Weather {
         }
     }
     
+    var weatherFiveDay: String {
+        get {
+            if _weatherFiveDay == nil {
+                _weatherFiveDay = ""
+            }
+            return _weatherFiveDay
+        }
+    }
+    
+    var weatherFiveTemp: String {
+        get {
+            if _weatherFiveTemp == nil {
+                _weatherFiveTemp = ""
+            }
+            return _weatherFiveTemp
+        }
+    }
+    
+    var weatherFivePic: String {
+        get {
+            if _weatherFivePic == nil {
+                _weatherFivePic = ""
+            }
+            return _weatherFivePic
+        }
+    }
+    
+    var weatherFiveDescription: String {
+        get {
+            if _weatherFiveDescription == nil {
+                _weatherFiveDescription = ""
+            }
+            return _weatherFiveDescription
+        }
+    }
+    
     var weatherLocationLat: Double {
         get {
         if _weatherLocationLat == nil {
@@ -102,32 +145,19 @@ class Weather {
         
     }
     
+    init(fiveDay: String, fivePic: String, fiveDesc: String, fiveTemp: String) {
+        self._weatherFiveDay = fiveDay
+        self._weatherFivePic = fivePic
+        self._weatherFiveTemp = fiveTemp
+        self._weatherFiveDescription = fiveDesc
+    }
     
-//    func setImageForWeather(weatherImage: String) -> String {
-//        
-//        switch weatherImage {
-//        case "Rain":
-//            return "Rain"
-//        case "Snow":
-//            return "Snow"
-//        case "Clear":
-//            return "Clear"
-//        case "Clouds":
-//            return "Clouds"
-//        case "Mist":
-//            return "Mist"
-//        default:
-//            return "Start"
-//        }
-//        
-//    }
-    
-    func downloadWeatherDetails(completed: DownloadComplete) {
-        
+    func downloadWeatherDetails(completed: DownloadComplete)
+    {
         let url = NSURL(string: self._weatherUrl)!
         Alamofire.request(.GET, url).responseJSON { response in
             let result = response.result
-            
+           
             if let dict = result.value as? Dictionary<String, AnyObject> {
                 
                 if let wDesc = dict["weather"] as? [Dictionary<String, AnyObject>] where wDesc.count > 0 {
@@ -135,7 +165,6 @@ class Weather {
                     //get the weather description
                     if let weatherD = wDesc[0]["description"] as? String {
                            self._todayDescription = weatherD
-                        
                     }
                     
                     //get the weather main pic name
@@ -143,8 +172,7 @@ class Weather {
                             self._todayWeatherPic = wPic
                     }
                 }
-                
-                
+
                 if let dt = dict["dt"] as? Double {
                     let date = NSDate(timeIntervalSince1970: dt)
                     let dayFormatter = NSDateFormatter()
@@ -156,13 +184,8 @@ class Weather {
                     self._day = dayFormatter.stringFromDate(date)
                     self._date = dateFormatter.stringFromDate(date)
                     self._time = timeFormatter.stringFromDate(date)
-                    print(self._day)
-                    print(self._date)
-                    print(self._time)
-                    
                 }
-
-                
+        
                 if let wTemp = dict["main"] as? Dictionary<String, AnyObject> {
                     
                     if let temp = wTemp["temp"] as? Double {
@@ -174,10 +197,63 @@ class Weather {
             completed()
             
         }
-        
-        
-        
     }
+                
+            func downloadFiveDayWeatherDetails(completed: DownloadCompleteOne)
+            
+            {
+               _forecastUrl = "\(URL_BASE)\(URL_FIVE_WEATHER)\(self._weatherLocationLat)\(URL_WEATHER_LONG)\(self._weatherLocationLong)\(URL_OWEATHER_API_KEY)"
+                let url = NSURL(string: self._forecastUrl)!
+                
+                Alamofire.request(.GET, url).responseJSON { response in
+                    let result = response.result
+                    
+                    
+                    print(result)
+                    
+                    
+                    if let dict = result.value as? Dictionary<String,AnyObject> {
+                    
+                        if let list = dict["list"] as? [Dictionary<String,AnyObject>] where list.count > 0 {
+                            
+                            //start foreloop here
+                           // for var x = 0; x <= 4; x++ {
+                            
+                            if let time = list[0]["dt"] as? Double {
+                                let date = NSDate(timeIntervalSince1970: time)
+                                let dayFormatter = NSDateFormatter()
+                                dayFormatter.dateFormat = "EEEE"
+                                self._weatherFiveDay = dayFormatter.stringFromDate(date)
+                            }
+                            
+                            if let pic = list[0]["main"] as? Dictionary<String,AnyObject> {
+                                if let main = pic["temp"] as? Double {
+                                    self._weatherFivePic = NSString(format: "%.0f", main-273.15) as String
+                                }
+                            }
+                            
+                            if let weather = list[0]["weather"] as? [Dictionary<String, AnyObject>] where weather.count > 0 {
+                                if let main = weather[0]["main"] as? String {
+                                    self._weatherFivePic = main
+                                }
+                                
+                                if let desc = weather[0]["description"] as? String {
+                                    self._weatherFiveDescription = desc
+                                }
+                            }
+//                                let weatherOne = Weather(fiveDay: self._weatherFiveDay, fivePic: self._weatherFivePic, fiveDesc: self._weatherFiveDescription, fiveTemp: self._weatherFiveTemp)
+//                                self._weatherArr.append(weatherOne)
+// }
+
+                            
+                        }
+                    }
+                    
+                       completed()
+                }
+                
+            }
+
     
     
     

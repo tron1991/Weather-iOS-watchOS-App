@@ -17,7 +17,7 @@
             <objects>
                 <controller contentMode="scaleAspectFill" spacing="5" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="WeatherWatch" customModuleProvider="target">
                     <items>
-                        <imageView width="46" alignment="center" image="cloud_35" contentMode="scaleAspectFill" id="OGx-H8-Zpd"/>
+                        <imageView width="46" alignment="center" image="Snow" contentMode="scaleAspectFill" id="OGx-H8-Zpd"/>
                         <label width="46" alignment="center" text="9C" textAlignment="center" id="hap-3K-1qo">
                             <fontDescription key="font" name="DKButteredToast" family="DK Buttered Toast" pointSize="24"/>
                         </label>
@@ -27,8 +27,18 @@
                         <label alignment="left" text="Cloudy with Rain" id="wmI-X2-UbT">
                             <fontDescription key="font" name="DKButteredToast" family="DK Buttered Toast" pointSize="16"/>
                         </label>
-                        <button width="1" alignment="left" title="Refresh" id="hPV-ez-oda"/>
+                        <button width="1" alignment="left" title="Refresh" id="hPV-ez-oda">
+                            <connections>
+                                <action selector="refreshWeather" destination="AgC-eL-Hgc" id="htE-KE-HqH"/>
+                            </connections>
+                        </button>
                     </items>
+                    <connections>
+                        <outlet property="weatherDay" destination="rbe-sf-qHT" id="MjM-6G-0gb"/>
+                        <outlet property="weatherDesc" destination="wmI-X2-UbT" id="IRu-Xh-1Ff"/>
+                        <outlet property="weatherPic" destination="OGx-H8-Zpd" id="CHX-og-5BH"/>
+                        <outlet property="weathertemp" destination="hap-3K-1qo" id="aZ1-bE-wlV"/>
+                    </connections>
                 </controller>
             </objects>
             <point key="canvasLocation" x="207" y="387"/>
