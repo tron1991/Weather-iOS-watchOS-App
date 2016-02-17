@@ -20,8 +20,6 @@ class MainWeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     var manager: OneShotLocationManager?
     var weatherToday : Weather!
-    var weatherFive : Weather!
-    var weatherArr : [Weather]!
     
     var session: WCSession!
     
@@ -93,6 +91,11 @@ class MainWeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 60
     }
+    
+    
+    
+    
+    //MARK: Refresh and Apple Watch Connectivity
 
     
     @IBAction func refreshButtonTapped(sender: AnyObject) {
@@ -104,6 +107,7 @@ class MainWeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         weatherToday.downloadWeatherDetails { () -> () in
             self.updateMainUI()
         }
+        
     }
     
     func session(session: WCSession, didReceiveMessage message: [String : AnyObject], replyHandler: ([String : AnyObject]) -> Void) {

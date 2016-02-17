@@ -23,6 +23,6 @@ typealias DownloadCompleteOne = () -> ()
 //api.openweathermap.org/data/2.5/weather?q=London&appid=cbcfc1b399b26bcabcfe728f0925dc2d
 //api.openweathermap.org/data/2.5/forecast?q=London&appid=cbcfc1b399b26bcabcfe728f0925dc2d
 
-
 //api.openweathermap.org/data/2.5/weather?lat=38.22&lon=139.67&appid=44db6a862fba0b067b1930da0d769e98
 //api.openweathermap.org/data/2.5/forecast?lat=38.22&lon=139.67&appid=44db6a862fba0b067b1930da0d769e98
+
