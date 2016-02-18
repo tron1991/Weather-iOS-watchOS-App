@@ -19,6 +19,7 @@ class Weather {
     private var _weatherLocationLat: Double!
     private var _weatherLocationLong: Double!
     private var _weatherArr = [Weather]()
+    private var _apiCheck: Bool!
     
     private var _weatherFiveDay: String!
     private var _weatherFiveTemp: String!
@@ -138,18 +139,16 @@ class Weather {
         }
     }
     
-    init(locationLat: Double, locationLong: Double) {
+    init(locationLat: Double, locationLong: Double, apiCall: Bool) {
         self._weatherLocationLong = locationLong
         self._weatherLocationLat = locationLat
-        _weatherUrl = "\(URL_BASE)\(URL_WEATHER_LAT)\(self._weatherLocationLat)\(URL_WEATHER_LONG)\(self._weatherLocationLong)\(URL_OWEATHER_API_KEY)"
         
-    }
-    
-    init(fiveDay: String, fivePic: String, fiveDesc: String, fiveTemp: String) {
-        self._weatherFiveDay = fiveDay
-        self._weatherFivePic = fivePic
-        self._weatherFiveTemp = fiveTemp
-        self._weatherFiveDescription = fiveDesc
+        if apiCall != false {
+        _weatherUrl = "\(URL_BASE)\(URL_WEATHER_LAT)\(self._weatherLocationLat)\(URL_WEATHER_LONG)\(self._weatherLocationLong)\(URL_OWEATHER_API_KEY)"
+        } else {
+             _weatherUrl = "\(URL_BASE)\(URL_FIVE_WEATHER)\(self._weatherLocationLat)\(URL_WEATHER_LONG)\(self._weatherLocationLong)\(URL_OWEATHER_API_KEY)"
+        }
+        
     }
     
     func downloadWeatherDetails(completed: DownloadComplete)
@@ -165,6 +164,7 @@ class Weather {
                     //get the weather description
                     if let weatherD = wDesc[0]["description"] as? String {
                            self._todayDescription = weatherD
+                        //print(self._todayDescription)
                     }
                     
                     //get the weather main pic name
@@ -190,6 +190,7 @@ class Weather {
                     
                     if let temp = wTemp["temp"] as? Double {
                         self._todayTemp = NSString(format: "%.0f", temp-273.15) as String
+                        
                     }
                 }
             }
@@ -199,25 +200,21 @@ class Weather {
         }
     }
     
-    /*
+    
                 
     func downloadFiveDayWeatherDetails(completed: DownloadCompleteOne)
             
             {
-               _forecastUrl = "\(URL_BASE)\(URL_FIVE_WEATHER)\(self._weatherLocationLat)\(URL_WEATHER_LONG)\(self._weatherLocationLong)\(URL_OWEATHER_API_KEY)"
-                let url = NSURL(string: self._forecastUrl)!
-                
+                let url = NSURL(string: self._weatherUrl)!
                 Alamofire.request(.GET, url).responseJSON { response in
                     let result = response.result
                     
-                    
-                    print(result)
-                    
-                    
+                    //print(result.value?.debugDescription)
+        
                     if let dict = result.value as? Dictionary<String,AnyObject> {
                     
                         if let list = dict["list"] as? [Dictionary<String,AnyObject>] where list.count > 0 {
-                            
+                          
                             //start foreloop here
                            // for var x = 0; x <= 4; x++ {
                             
@@ -226,21 +223,25 @@ class Weather {
                                 let dayFormatter = NSDateFormatter()
                                 dayFormatter.dateFormat = "EEEE"
                                 self._weatherFiveDay = dayFormatter.stringFromDate(date)
+                                   print(self._weatherFiveDay)
                             }
                             
                             if let pic = list[0]["main"] as? Dictionary<String,AnyObject> {
                                 if let main = pic["temp"] as? Double {
-                                    self._weatherFivePic = NSString(format: "%.0f", main-273.15) as String
+                                    self._weatherFiveTemp = NSString(format: "%.0f", main-273.15) as String
+                                      print(self._weatherFiveTemp)
                                 }
                             }
                             
                             if let weather = list[0]["weather"] as? [Dictionary<String, AnyObject>] where weather.count > 0 {
                                 if let main = weather[0]["main"] as? String {
                                     self._weatherFivePic = main
+                                      print(self._weatherFivePic)
                                 }
                                 
                                 if let desc = weather[0]["description"] as? String {
                                     self._weatherFiveDescription = desc
+                                      print(self._weatherFiveDescription)
                                 }
                             }
 //                                let weatherOne = Weather(fiveDay: self._weatherFiveDay, fivePic: self._weatherFivePic, fiveDesc: self._weatherFiveDescription, fiveTemp: self._weatherFiveTemp)
@@ -256,7 +257,7 @@ class Weather {
                 
             }
 
-*/
+
     
     
     

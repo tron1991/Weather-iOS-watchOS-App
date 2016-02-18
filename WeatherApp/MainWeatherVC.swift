@@ -20,6 +20,7 @@ class MainWeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     var manager: OneShotLocationManager?
     var weatherToday : Weather!
+    var weatherFiveDay: Weather!
     
     var session: WCSession!
     
@@ -42,8 +43,19 @@ class MainWeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
             
             // fetch location or an error
             if let loc = location {
-                self.weatherToday = Weather(locationLat: loc.coordinate.latitude, locationLong: loc.coordinate.longitude)
+                
+                let weatherType = true
+                self.weatherToday = Weather(locationLat: loc.coordinate.latitude, locationLong: loc.coordinate.longitude, apiCall: weatherType)
                 self.refreshWeatherStats()
+                
+                let weatherT = false
+                self.weatherFiveDay = Weather(locationLat: loc.coordinate.latitude, locationLong: loc.coordinate.longitude, apiCall: weatherT)
+                
+                self.weatherFiveDay.downloadFiveDayWeatherDetails{ () -> () in
+                
+                }
+                
+                
      
             } else if let err = error {
                 print(err.localizedDescription)

@@ -22,3 +22,4 @@ typealias DownloadCompleteOne = () -> ()
 //api.openweathermap.org/data/2.5/weather?lat=38.22&lon=139.67&appid=44db6a862fba0b067b1930da0d769e98
 //api.openweathermap.org/data/2.5/forecast?lat=38.22&lon=139.67&appid=44db6a862fba0b067b1930da0d769e98
 
+//  _weatherUrl = "\(URL_BASE)\(URL_FIVE_WEATHER)\(self._weatherLocationLat)\(URL_WEATHER_LONG)\(self._weatherLocationLong)\(URL_OWEATHER_API_KEY)"
