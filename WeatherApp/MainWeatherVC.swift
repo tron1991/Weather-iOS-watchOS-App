@@ -71,14 +71,6 @@ class MainWeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCellWithIdentifier("WeatherCell", forIndexPath: indexPath) as? WeatherCell {
-            
-
-            //self.weatherFive = Weather(fiveDay: "thursday", fivePic: "cloud_35", fiveDesc: "Hello there", fiveTemp: "12")
-           // self.weatherFive.downloadFiveDayWeatherDetails { () -> () in
-           //     cell.configureCell(self.weatherFive)
-           // }
-         
-            //cell.fakeCell()
             return cell
         }
         return UITableViewCell()
@@ -92,12 +84,8 @@ class MainWeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         return 60
     }
     
-    
-    
-    
     //MARK: Refresh and Apple Watch Connectivity
 
-    
     @IBAction func refreshButtonTapped(sender: AnyObject) {
         refreshWeatherStats()
     }

@@ -198,8 +198,10 @@ class Weather {
             
         }
     }
+    
+    /*
                 
-            func downloadFiveDayWeatherDetails(completed: DownloadCompleteOne)
+    func downloadFiveDayWeatherDetails(completed: DownloadCompleteOne)
             
             {
                _forecastUrl = "\(URL_BASE)\(URL_FIVE_WEATHER)\(self._weatherLocationLat)\(URL_WEATHER_LONG)\(self._weatherLocationLong)\(URL_OWEATHER_API_KEY)"
@@ -254,6 +256,7 @@ class Weather {
                 
             }
 
+*/
     
     
     
