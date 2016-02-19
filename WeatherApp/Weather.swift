@@ -18,7 +18,8 @@ class Weather {
     private var _forecastUrl: String!
     private var _weatherLocationLat: Double!
     private var _weatherLocationLong: Double!
-    private var _weatherArr = [Weather]()
+    private var _weath = [String!]()
+
     private var _apiCheck: Bool!
     
     private var _weatherFiveDay: String!
@@ -31,6 +32,14 @@ class Weather {
     private var _time: String!
     
     
+    
+    var weath: [String!] {
+        get {
+            
+            return _weath
+        }
+    }
+
     var todayWeatherPic: String {
         get {
         if _todayWeatherPic == nil {
@@ -209,44 +218,47 @@ class Weather {
                 Alamofire.request(.GET, url).responseJSON { response in
                     let result = response.result
                     
-                    //print(result.value?.debugDescription)
+                   // print(result.value?.debugDescription)
         
                     if let dict = result.value as? Dictionary<String,AnyObject> {
                     
                         if let list = dict["list"] as? [Dictionary<String,AnyObject>] where list.count > 0 {
                           
                             //start foreloop here
-                           // for var x = 0; x <= 4; x++ {
+                            for var x = 1; x <= 5; x++ {
                             
-                            if let time = list[0]["dt"] as? Double {
+                            if let time = list[x*7]["dt"] as? Double {
                                 let date = NSDate(timeIntervalSince1970: time)
                                 let dayFormatter = NSDateFormatter()
                                 dayFormatter.dateFormat = "EEEE"
                                 self._weatherFiveDay = dayFormatter.stringFromDate(date)
-                                   print(self._weatherFiveDay)
+                                
                             }
                             
-                            if let pic = list[0]["main"] as? Dictionary<String,AnyObject> {
+                            if let pic = list[x*7]["main"] as? Dictionary<String,AnyObject> {
                                 if let main = pic["temp"] as? Double {
                                     self._weatherFiveTemp = NSString(format: "%.0f", main-273.15) as String
-                                      print(self._weatherFiveTemp)
+                                    
                                 }
                             }
                             
-                            if let weather = list[0]["weather"] as? [Dictionary<String, AnyObject>] where weather.count > 0 {
+                            if let weather = list[x*7]["weather"] as? [Dictionary<String, AnyObject>] where weather.count > 0 {
                                 if let main = weather[0]["main"] as? String {
                                     self._weatherFivePic = main
-                                      print(self._weatherFivePic)
+                                    
                                 }
                                 
                                 if let desc = weather[0]["description"] as? String {
                                     self._weatherFiveDescription = desc
-                                      print(self._weatherFiveDescription)
+                                    
                                 }
                             }
-//                                let weatherOne = Weather(fiveDay: self._weatherFiveDay, fivePic: self._weatherFivePic, fiveDesc: self._weatherFiveDescription, fiveTemp: self._weatherFiveTemp)
-//                                self._weatherArr.append(weatherOne)
-// }
+                                let weatherOne = [self._weatherFiveDay, self._weatherFivePic, self._weatherFiveDescription, self._weatherFiveTemp]
+                                //var weath = [String!]()
+                                self._weath += weatherOne
+                                //print(self._weath)
+                                
+                            }
 
                             
                         }

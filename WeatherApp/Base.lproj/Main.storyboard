@@ -13,6 +13,18 @@
             <string>DKButteredToast</string>
             <string>DKButteredToast</string>
             <string>DKButteredToast</string>
+            <string>DKButteredToast</string>
+            <string>DKButteredToast</string>
+            <string>DKButteredToast</string>
+            <string>DKButteredToast</string>
+            <string>DKButteredToast</string>
+            <string>DKButteredToast</string>
+            <string>DKButteredToast</string>
+            <string>DKButteredToast</string>
+            <string>DKButteredToast</string>
+            <string>DKButteredToast</string>
+            <string>DKButteredToast</string>
+            <string>DKButteredToast</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -73,65 +85,6 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aDc-N5-Xza">
-                                <rect key="frame" x="0.0" y="329" width="600" height="271"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="WeatherCell" rowHeight="60" id="eeR-fF-IgU" customClass="WeatherCell" customModule="WeatherApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="600" height="60"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eeR-fF-IgU" id="VKd-zW-f8v">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="Ob1-dj-ivC">
-                                                    <rect key="frame" x="16" y="6" width="241" height="32"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thursday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ht-eZ-q80">
-                                                            <rect key="frame" x="0.0" y="0.0" width="62" height="32"/>
-                                                            <fontDescription key="fontDescription" name="DKButteredToast" family="DK Buttered Toast" pointSize="16"/>
-                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="raindrops_35" translatesAutoresizingMaskIntoConstraints="NO" id="bEw-Jg-UFC">
-                                                            <rect key="frame" x="87" y="0.0" width="32" height="32"/>
-                                                        </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rain and Snow" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a9H-Ft-Enw">
-                                                            <rect key="frame" x="144" y="0.0" width="97" height="32"/>
-                                                            <fontDescription key="fontDescription" name="DKButteredToast" family="DK Buttered Toast" pointSize="16"/>
-                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                </stackView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="14C" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pi4-fq-DgZ">
-                                                    <rect key="frame" x="514" y="10" width="62" height="23"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="62" id="L4m-MH-mbc"/>
-                                                        <constraint firstAttribute="height" constant="23" id="XPu-hr-T3k"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name="DKButteredToast" family="DK Buttered Toast" pointSize="22"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="Ob1-dj-ivC" firstAttribute="top" secondItem="VKd-zW-f8v" secondAttribute="top" constant="6" id="5NA-wM-5hR"/>
-                                                <constraint firstItem="Ob1-dj-ivC" firstAttribute="leading" secondItem="VKd-zW-f8v" secondAttribute="leading" constant="16" id="GsU-vv-1qJ"/>
-                                                <constraint firstItem="Pi4-fq-DgZ" firstAttribute="top" secondItem="VKd-zW-f8v" secondAttribute="top" constant="10" id="f5O-If-ieD"/>
-                                                <constraint firstAttribute="trailing" secondItem="Pi4-fq-DgZ" secondAttribute="trailing" constant="24" id="hLY-ZR-Ii3"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <outlet property="fiveDateDescription" destination="a9H-Ft-Enw" id="gSy-ve-fEa"/>
-                                            <outlet property="fiveDateImage" destination="bEw-Jg-UFC" id="HRl-XV-6d7"/>
-                                            <outlet property="fiveDateTemperature" destination="Pi4-fq-DgZ" id="A1a-NP-9hm"/>
-                                            <outlet property="fiveWeekDay" destination="9Ht-eZ-q80" id="nuK-Wn-ovF"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Cloudy with Rain" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SWY-I5-nij">
                                 <rect key="frame" x="134" y="268" width="332" height="46"/>
                                 <constraints>
@@ -152,23 +105,203 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" spacing="80" translatesAutoresizingMaskIntoConstraints="NO" id="lNn-Uk-6Li">
+                                <rect key="frame" x="20" y="391" width="342" height="32"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="m8t-my-9rI">
+                                        <rect key="frame" x="0.0" y="0.0" width="221" height="32"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Thursday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IrM-t9-Zes">
+                                                <rect key="frame" x="0.0" y="0.0" width="58" height="32"/>
+                                                <fontDescription key="fontDescription" name="DKButteredToast" family="DK Buttered Toast" pointSize="15"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="cloud_35" translatesAutoresizingMaskIntoConstraints="NO" id="BT8-32-H4z">
+                                                <rect key="frame" x="73" y="0.0" width="32" height="32"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Rain and Clouds" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jzH-yv-aaC">
+                                                <rect key="frame" x="120" y="0.0" width="101" height="32"/>
+                                                <fontDescription key="fontDescription" name="DKButteredToast" family="DK Buttered Toast" pointSize="15"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="13°C" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WFg-Pe-b16">
+                                        <rect key="frame" x="301" y="0.0" width="41" height="32"/>
+                                        <fontDescription key="fontDescription" name="DKButteredToast" family="DK Buttered Toast" pointSize="22"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="342" id="ZBF-Jo-RJo"/>
+                                    <constraint firstAttribute="height" constant="32" id="kwW-8r-7ww"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" spacing="80" translatesAutoresizingMaskIntoConstraints="NO" id="zhl-gb-B4T">
+                                <rect key="frame" x="20" y="443" width="342" height="32"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="BNg-s2-mOo">
+                                        <rect key="frame" x="0.0" y="0.0" width="221" height="32"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Thursday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DHz-Ln-Cdk">
+                                                <rect key="frame" x="0.0" y="0.0" width="58" height="32"/>
+                                                <fontDescription key="fontDescription" name="DKButteredToast" family="DK Buttered Toast" pointSize="15"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="cloud_35" translatesAutoresizingMaskIntoConstraints="NO" id="QTQ-4q-o19">
+                                                <rect key="frame" x="73" y="0.0" width="32" height="32"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Rain and Clouds" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fwE-9a-NEF">
+                                                <rect key="frame" x="120" y="0.0" width="101" height="32"/>
+                                                <fontDescription key="fontDescription" name="DKButteredToast" family="DK Buttered Toast" pointSize="15"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="13°C" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Rk-Vt-TMM">
+                                        <rect key="frame" x="301" y="0.0" width="41" height="32"/>
+                                        <fontDescription key="fontDescription" name="DKButteredToast" family="DK Buttered Toast" pointSize="22"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="342" id="QaA-fG-DQd"/>
+                                    <constraint firstAttribute="height" constant="32" id="fCO-fj-dQF"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" spacing="80" translatesAutoresizingMaskIntoConstraints="NO" id="on8-as-N1t">
+                                <rect key="frame" x="20" y="543" width="342" height="32"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="1l0-r0-UDx">
+                                        <rect key="frame" x="0.0" y="0.0" width="221" height="32"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Thursday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mBp-1K-wX6">
+                                                <rect key="frame" x="0.0" y="0.0" width="58" height="32"/>
+                                                <fontDescription key="fontDescription" name="DKButteredToast" family="DK Buttered Toast" pointSize="15"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="cloud_35" translatesAutoresizingMaskIntoConstraints="NO" id="khG-3b-Whx">
+                                                <rect key="frame" x="73" y="0.0" width="32" height="32"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Rain and Clouds" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lFU-Id-3mV">
+                                                <rect key="frame" x="120" y="0.0" width="101" height="32"/>
+                                                <fontDescription key="fontDescription" name="DKButteredToast" family="DK Buttered Toast" pointSize="15"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="13°C" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lYh-7R-axC">
+                                        <rect key="frame" x="301" y="0.0" width="41" height="32"/>
+                                        <fontDescription key="fontDescription" name="DKButteredToast" family="DK Buttered Toast" pointSize="22"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="Abj-ub-UV9"/>
+                                    <constraint firstAttribute="width" constant="342" id="q62-Ry-3Es"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" spacing="80" translatesAutoresizingMaskIntoConstraints="NO" id="S0U-eA-hxA">
+                                <rect key="frame" x="20" y="343" width="342" height="32"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="yMD-HA-tjr">
+                                        <rect key="frame" x="0.0" y="0.0" width="221" height="32"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Thursday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bKx-Re-gjO">
+                                                <rect key="frame" x="0.0" y="0.0" width="58" height="32"/>
+                                                <fontDescription key="fontDescription" name="DKButteredToast" family="DK Buttered Toast" pointSize="15"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="cloud_35" translatesAutoresizingMaskIntoConstraints="NO" id="DZO-5A-Dgr">
+                                                <rect key="frame" x="73" y="0.0" width="32" height="32"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Rain and Clouds" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7we-9z-eoB">
+                                                <rect key="frame" x="120" y="0.0" width="101" height="32"/>
+                                                <fontDescription key="fontDescription" name="DKButteredToast" family="DK Buttered Toast" pointSize="15"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="13°C" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rDW-Vm-BqB">
+                                        <rect key="frame" x="301" y="0.0" width="41" height="32"/>
+                                        <fontDescription key="fontDescription" name="DKButteredToast" family="DK Buttered Toast" pointSize="22"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="342" id="AfU-k9-aLp"/>
+                                    <constraint firstAttribute="height" constant="32" id="h4f-l8-44z"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" spacing="80" translatesAutoresizingMaskIntoConstraints="NO" id="Afe-Js-zWU">
+                                <rect key="frame" x="20" y="495" width="342" height="32"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="rMi-Ab-LJD">
+                                        <rect key="frame" x="0.0" y="0.0" width="221" height="32"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Thursday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qip-pS-5L7">
+                                                <rect key="frame" x="0.0" y="0.0" width="58" height="32"/>
+                                                <fontDescription key="fontDescription" name="DKButteredToast" family="DK Buttered Toast" pointSize="15"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="cloud_35" translatesAutoresizingMaskIntoConstraints="NO" id="zUh-3g-EyY">
+                                                <rect key="frame" x="73" y="0.0" width="32" height="32"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Rain and Clouds" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zgl-Z2-0g4">
+                                                <rect key="frame" x="120" y="0.0" width="101" height="32"/>
+                                                <fontDescription key="fontDescription" name="DKButteredToast" family="DK Buttered Toast" pointSize="15"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="13°C" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Vc-hH-cTV">
+                                        <rect key="frame" x="301" y="0.0" width="41" height="32"/>
+                                        <fontDescription key="fontDescription" name="DKButteredToast" family="DK Buttered Toast" pointSize="22"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="COU-vD-Dr6"/>
+                                    <constraint firstAttribute="width" constant="342" id="jWc-oL-7iK"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="aDc-N5-Xza" secondAttribute="trailing" id="5dI-Es-5C7"/>
-                            <constraint firstItem="aDc-N5-Xza" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="8Ir-c9-AiO"/>
-                            <constraint firstItem="aDc-N5-Xza" firstAttribute="top" secondItem="SWY-I5-nij" secondAttribute="bottom" constant="15" id="9KZ-tX-k8k"/>
+                            <constraint firstItem="lNn-Uk-6Li" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0hr-SS-QRe"/>
                             <constraint firstItem="f6r-z4-8jq" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="11" id="Dmf-OW-Wga"/>
                             <constraint firstItem="SPI-WS-Svg" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="JuT-ur-CwM"/>
                             <constraint firstItem="esP-iO-lta" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="80" id="Mq7-Rq-uUA"/>
                             <constraint firstAttribute="trailing" secondItem="f6r-z4-8jq" secondAttribute="trailing" constant="20" id="OOc-Mw-FjH"/>
+                            <constraint firstItem="Afe-Js-zWU" firstAttribute="top" secondItem="zhl-gb-B4T" secondAttribute="bottom" constant="20" id="OjR-cU-rmw"/>
+                            <constraint firstItem="S0U-eA-hxA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="P7t-2Q-gCH"/>
                             <constraint firstItem="62B-2H-bVG" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="RJ0-dn-6lS"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="aDc-N5-Xza" secondAttribute="bottom" id="V2D-zx-o5Z"/>
+                            <constraint firstItem="lNn-Uk-6Li" firstAttribute="top" secondItem="S0U-eA-hxA" secondAttribute="bottom" constant="16" id="XVS-kc-IE0"/>
+                            <constraint firstItem="zhl-gb-B4T" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dtF-Ue-cAx"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="SPI-WS-Svg" secondAttribute="bottom" id="eeD-Cx-uUP"/>
+                            <constraint firstItem="zhl-gb-B4T" firstAttribute="top" secondItem="lNn-Uk-6Li" secondAttribute="bottom" constant="20" id="gNM-ba-zHE"/>
                             <constraint firstItem="esP-iO-lta" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hW9-6J-WWN"/>
                             <constraint firstItem="mTy-rt-gNa" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="24" id="hhH-HM-CYI"/>
                             <constraint firstItem="SPI-WS-Svg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="maz-Oz-lhR"/>
+                            <constraint firstItem="Afe-Js-zWU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pXl-as-AFq"/>
                             <constraint firstAttribute="trailing" secondItem="SPI-WS-Svg" secondAttribute="trailing" id="qML-b6-SRr"/>
+                            <constraint firstItem="S0U-eA-hxA" firstAttribute="top" secondItem="SWY-I5-nij" secondAttribute="bottom" constant="29" id="qmr-bz-z5K"/>
+                            <constraint firstItem="on8-as-N1t" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xoO-Ov-cip"/>
                             <constraint firstItem="SWY-I5-nij" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="y2v-0V-7ic"/>
                             <constraint firstItem="mTy-rt-gNa" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zdx-9e-ozd"/>
                         </constraints>
@@ -176,9 +309,28 @@
                     <connections>
                         <outlet property="dateOfTheWeekLabel" destination="esP-iO-lta" id="X5E-jy-pAn"/>
                         <outlet property="dayDescription" destination="SWY-I5-nij" id="l5c-UU-2Lg"/>
+                        <outlet property="dayFiveDate" destination="mBp-1K-wX6" id="otD-kI-7dw"/>
+                        <outlet property="dayFiveDesc" destination="lFU-Id-3mV" id="QXN-by-qeB"/>
+                        <outlet property="dayFivePic" destination="khG-3b-Whx" id="F5L-Kr-XFo"/>
+                        <outlet property="dayFiveTemp" destination="lYh-7R-axC" id="HAo-eg-Zj1"/>
+                        <outlet property="dayFourDate" destination="qip-pS-5L7" id="aaT-ap-IIw"/>
+                        <outlet property="dayFourDesc" destination="Zgl-Z2-0g4" id="Bfu-sg-WbS"/>
+                        <outlet property="dayFourPic" destination="zUh-3g-EyY" id="KK1-T2-Ski"/>
+                        <outlet property="dayFourTemp" destination="3Vc-hH-cTV" id="0gd-JR-NiS"/>
                         <outlet property="dayOfTheWeekLabel" destination="mTy-rt-gNa" id="uUg-EF-Hkb"/>
+                        <outlet property="dayOneDate" destination="bKx-Re-gjO" id="5kA-Fw-Nns"/>
+                        <outlet property="dayOneDesc" destination="7we-9z-eoB" id="MfM-zI-HAm"/>
+                        <outlet property="dayOnePic" destination="DZO-5A-Dgr" id="duw-d0-CMP"/>
+                        <outlet property="dayOneTemp" destination="rDW-Vm-BqB" id="l5B-ct-o8I"/>
                         <outlet property="dayTempLabel" destination="EGq-nw-AVW" id="cBP-IM-zp4"/>
-                        <outlet property="tableView" destination="aDc-N5-Xza" id="cyS-gv-NnA"/>
+                        <outlet property="dayThreeDate" destination="DHz-Ln-Cdk" id="y0o-Xh-RHq"/>
+                        <outlet property="dayThreeDesc" destination="fwE-9a-NEF" id="w0R-eN-8WS"/>
+                        <outlet property="dayThreePic" destination="QTQ-4q-o19" id="aC3-e3-dxz"/>
+                        <outlet property="dayThreeTemp" destination="9Rk-Vt-TMM" id="JAW-9J-5kR"/>
+                        <outlet property="dayTwoDate" destination="IrM-t9-Zes" id="Uua-1g-D9u"/>
+                        <outlet property="dayTwoDesc" destination="jzH-yv-aaC" id="B74-h1-Ubl"/>
+                        <outlet property="dayTwoPic" destination="BT8-32-H4z" id="Ert-Zc-juZ"/>
+                        <outlet property="dayTwoTemp" destination="WFg-Pe-b16" id="TZN-sk-0bI"/>
                         <outlet property="weatherPictureImg" destination="i6Y-Jc-f9B" id="S99-pt-OKV"/>
                     </connections>
                 </viewController>
@@ -191,6 +343,6 @@
         <image name="Background" width="750" height="1334"/>
         <image name="Refresh" width="44" height="44"/>
         <image name="cloud_100" width="128" height="128"/>
-        <image name="raindrops_35" width="32" height="32"/>
+        <image name="cloud_35" width="32" height="32"/>
     </resources>
 </document>

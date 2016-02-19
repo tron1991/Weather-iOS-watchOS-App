@@ -9,14 +9,41 @@
 import UIKit
 import WatchConnectivity
 
-class MainWeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSource, WCSessionDelegate {
+class MainWeatherVC: UIViewController, WCSessionDelegate {
     
-    @IBOutlet weak var tableView: UITableView!
+   
     @IBOutlet weak var dayOfTheWeekLabel: UILabel!
     @IBOutlet weak var dateOfTheWeekLabel: UILabel!
     @IBOutlet weak var weatherPictureImg: UIImageView!
     @IBOutlet weak var dayTempLabel: UILabel!
     @IBOutlet weak var dayDescription: UILabel!
+    
+    
+    //5 Day Forcast TODO: tableView for data inputs
+    @IBOutlet weak var dayOneDate: UILabel!
+    @IBOutlet weak var dayTwoDate: UILabel!
+    @IBOutlet weak var dayThreeDate: UILabel!
+    @IBOutlet weak var dayFourDate: UILabel!
+    @IBOutlet weak var dayFiveDate: UILabel!
+    
+    
+    @IBOutlet weak var dayOnePic: UIImageView!
+    @IBOutlet weak var dayTwoPic: UIImageView!
+    @IBOutlet weak var dayThreePic: UIImageView!
+    @IBOutlet weak var dayFourPic: UIImageView!
+    @IBOutlet weak var dayFivePic: UIImageView!
+    
+    @IBOutlet weak var dayOneDesc: UILabel!
+    @IBOutlet weak var dayTwoDesc: UILabel!
+    @IBOutlet weak var dayThreeDesc: UILabel!
+    @IBOutlet weak var dayFourDesc: UILabel!
+    @IBOutlet weak var dayFiveDesc: UILabel!
+    
+    @IBOutlet weak var dayOneTemp: UILabel!
+    @IBOutlet weak var dayTwoTemp: UILabel!
+    @IBOutlet weak var dayThreeTemp: UILabel!
+    @IBOutlet weak var dayFourTemp: UILabel!
+    @IBOutlet weak var dayFiveTemp: UILabel!
     
     var manager: OneShotLocationManager?
     var weatherToday : Weather!
@@ -28,9 +55,6 @@ class MainWeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.estimatedRowHeight = 60
         
         if (WCSession.isSupported()) {
             session = WCSession.defaultSession()
@@ -46,17 +70,16 @@ class MainWeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
                 
                 let weatherType = true
                 self.weatherToday = Weather(locationLat: loc.coordinate.latitude, locationLong: loc.coordinate.longitude, apiCall: weatherType)
-                self.refreshWeatherStats()
+                self.weatherToday.downloadWeatherDetails { () -> () in
+                    self.updateMainUI()
+                }
                 
                 let weatherT = false
                 self.weatherFiveDay = Weather(locationLat: loc.coordinate.latitude, locationLong: loc.coordinate.longitude, apiCall: weatherT)
-                
                 self.weatherFiveDay.downloadFiveDayWeatherDetails{ () -> () in
-                
+                    self.updateFiveDayForecast()
                 }
                 
-                
-     
             } else if let err = error {
                 print(err.localizedDescription)
             }
@@ -74,27 +97,49 @@ class MainWeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         self.dateOfTheWeekLabel.text = weatherToday.date
     }
     
-    //MARK - Table View Delegates
-    
-    
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
+    func updateFiveDayForecast() {
+        self.dayOneDate.text = weatherFiveDay.weath[0]
+        self.dayOnePic.image = UIImage(named: setPic(weatherFiveDay.weath[1]))
+        self.dayOneDesc.text = weatherFiveDay.weath[2]
+        self.dayOneTemp.text = weatherFiveDay.weath[3] + "°C"
+        
+        self.dayTwoDate.text = weatherFiveDay.weath[4]
+        self.dayTwoPic.image = UIImage(named: setPic(weatherFiveDay.weath[5]))
+        self.dayTwoDesc.text = weatherFiveDay.weath[6]
+        self.dayTwoTemp.text = weatherFiveDay.weath[7] + "°C"
+
+        self.dayThreeDate.text = weatherFiveDay.weath[8]
+        self.dayThreePic.image = UIImage(named: setPic(weatherFiveDay.weath[9]))
+        self.dayThreeDesc.text = weatherFiveDay.weath[10]
+        self.dayThreeTemp.text = weatherFiveDay.weath[11] + "°C"
+
+        self.dayFourDate.text = weatherFiveDay.weath[12]
+        self.dayFourPic.image = UIImage(named: setPic(weatherFiveDay.weath[13]))
+        self.dayFourDesc.text = weatherFiveDay.weath[14]
+        self.dayFourTemp.text = weatherFiveDay.weath[15] + "°C"
+
+        self.dayFiveDate.text = weatherFiveDay.weath[16]
+        self.dayFivePic.image = UIImage(named: setPic(weatherFiveDay.weath[17]))
+        self.dayFiveDesc.text = weatherFiveDay.weath[18]
+        self.dayFiveTemp.text = weatherFiveDay.weath[19] + "°C"
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCellWithIdentifier("WeatherCell", forIndexPath: indexPath) as? WeatherCell {
-            return cell
+    func setPic(weather: String) -> String {
+        switch weather {
+        case "Clouds":
+            return "cloud_35"
+        case "Rain":
+            return "raindrops_35"
+        case "Snow":
+            return "snow_35"
+        case "Clear":
+            return "sun_35"
+        default:
+            return "sun_35"
         }
-        return UITableViewCell()
     }
+
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
-    
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 60
-    }
     
     //MARK: Refresh and Apple Watch Connectivity
 
@@ -108,6 +153,9 @@ class MainWeatherVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
             self.updateMainUI()
         }
         
+        self.weatherFiveDay.downloadFiveDayWeatherDetails{ () -> () in
+            self.updateFiveDayForecast()
+        }
     }
     
     func session(session: WCSession, didReceiveMessage message: [String : AnyObject], replyHandler: ([String : AnyObject]) -> Void) {
