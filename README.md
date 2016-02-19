@@ -17,9 +17,9 @@ The goal for the app is to build a simple weather app for iOS and watchOS. The s
 
 ##Product Designs
 
-![Screen](https://github.com/tron1991/Weather-iOS-watchOS-App/Wireframes/WeatherAppScreenshots/4-inch (iPhone 5) - Screenshot 1.jpg)
+![Screen](https://raw.githubusercontent.com/tron1991/Weather-iOS-watchOS-App/master/Wireframes/WeatherAppScreenshots/4-inch%20(iPhone%205)%20-%20Screenshot%201.jpg)
 
-![Screen](https://github.com/tron1991/Weather-iOS-watchOS-App/Wireframes/AppleWatch.png)
+![Screen](https://raw.githubusercontent.com/tron1991/Weather-iOS-watchOS-App/master/Wireframes/AppleWatch.png)
 
 ## What is it?
 
