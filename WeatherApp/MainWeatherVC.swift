@@ -240,9 +240,6 @@ class MainWeatherVC: UIViewController, WCSessionDelegate {
             self.updateMainUI()
         }
         
-        self.weatherFiveDay.downloadFiveDayWeatherDetails{ () -> () in
-            self.updateFiveDayForecast()
-        }
     }
     
     func session(session: WCSession, didReceiveMessage message: [String : AnyObject], replyHandler: ([String : AnyObject]) -> Void) {

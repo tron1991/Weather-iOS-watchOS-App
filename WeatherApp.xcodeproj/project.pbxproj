@@ -25,6 +25,8 @@
 		D4580DC71C6DA58C0008A18C /* WeatherWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = D4580DAD1C6DA58B0008A18C /* WeatherWatch.app */; };
 		D4580DD11C6FC0E00008A18C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4580DD01C6FC0E00008A18C /* Constants.swift */; };
 		D4580DD81C7120740008A18C /* OneShotLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4580DD71C7120740008A18C /* OneShotLocationManager.swift */; };
+		D48AF4E91C77C784006D9D4A /* WatchConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D48AF4E71C77C784006D9D4A /* WatchConnectivity.framework */; };
+		D48AF4EA1C77C784006D9D4A /* WatchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D48AF4E81C77C784006D9D4A /* WatchKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +100,8 @@
 		D4580DD91C716F7D0008A18C /* WeatherApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = WeatherApp.entitlements; sourceTree = "<group>"; };
 		D4580DDA1C7174830008A18C /* WeatherWatch Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "WeatherWatch Extension.entitlements"; sourceTree = "<group>"; };
 		D4580DDD1C7263930008A18C /* WeatherWatch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = WeatherWatch.entitlements; sourceTree = "<group>"; };
+		D48AF4E71C77C784006D9D4A /* WatchConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WatchConnectivity.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS2.1.sdk/System/Library/Frameworks/WatchConnectivity.framework; sourceTree = DEVELOPER_DIR; };
+		D48AF4E81C77C784006D9D4A /* WatchKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WatchKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS2.1.sdk/System/Library/Frameworks/WatchKit.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +117,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D48AF4E91C77C784006D9D4A /* WatchConnectivity.framework in Frameworks */,
+				D48AF4EA1C77C784006D9D4A /* WatchKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -122,6 +128,8 @@
 		2241EDAB492BEE4CC2E6BA34 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D48AF4E71C77C784006D9D4A /* WatchConnectivity.framework */,
+				D48AF4E81C77C784006D9D4A /* WatchKit.framework */,
 				9AE511B9840EA5198DCAB33F /* Pods_WeatherApp.framework */,
 			);
 			name = Frameworks;
@@ -521,8 +529,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -544,7 +552,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "565b7d0a-0f96-4400-9c64-260c34de2e53";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -567,8 +575,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -583,7 +591,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "565b7d0a-0f96-4400-9c64-260c34de2e53";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -601,7 +609,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nicholasivanecky.WeatherApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "565b7d0a-0f96-4400-9c64-260c34de2e53";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -611,13 +619,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = WeatherApp/WeatherApp.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Nicholas Ivanecky (P8KC346948)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Nicholas Ivanecky (P8KC346948)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = WeatherApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nicholasivanecky.WeatherApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "565b7d0a-0f96-4400-9c64-260c34de2e53";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -626,13 +634,13 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "WeatherWatch Extension/WeatherWatch Extension.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "WeatherWatch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nicholasivanecky.WeatherApp.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
-				PROVISIONING_PROFILE = "2b5d999c-1cdf-4a15-b0f1-8904e72555fa";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -644,14 +652,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "WeatherWatch Extension/WeatherWatch Extension.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer: Nicholas Ivanecky (P8KC346948)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Nicholas Ivanecky (P8KC346948)";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer: Nicholas Ivanecky (P8KC346948)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "WeatherWatch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nicholasivanecky.WeatherApp.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
-				PROVISIONING_PROFILE = "2b5d999c-1cdf-4a15-b0f1-8904e72555fa";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -666,6 +674,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = WeatherWatch/WeatherWatch.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				IBSC_MODULE = WeatherWatch_Extension;
@@ -673,7 +682,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nicholasivanecky.WeatherApp.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "dbd6a4dc-3179-412a-a2b6-38cfbe199cf6";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "WeatherApp/WeatherWatch-Bridging-Header.h";
@@ -689,16 +698,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = WeatherWatch/WeatherWatch.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Nicholas Ivanecky (P8KC346948)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Nicholas Ivanecky (P8KC346948)";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer: Nicholas Ivanecky (P8KC346948)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				IBSC_MODULE = WeatherWatch_Extension;
 				INFOPLIST_FILE = WeatherWatch/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.nicholasivanecky.WeatherApp.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "dbd6a4dc-3179-412a-a2b6-38cfbe199cf6";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "WeatherApp/WeatherWatch-Bridging-Header.h";

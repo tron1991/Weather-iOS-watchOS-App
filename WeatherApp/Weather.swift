@@ -231,8 +231,7 @@ class Weather {
                                 let date = NSDate(timeIntervalSince1970: time)
                                 let dayFormatter = NSDateFormatter()
                                 dayFormatter.dateFormat = "EEEE"
-                                self._weatherFiveDay = dayFormatter.stringFromDate(date)
-                                
+                                self._weatherFiveDay = dayFormatter.stringFromDate(date)     
                             }
                             
                             if let pic = list[x*7]["main"] as? Dictionary<String,AnyObject> {
@@ -255,7 +254,7 @@ class Weather {
                             }
                                 let weatherOne = [self._weatherFiveDay, self._weatherFivePic, self._weatherFiveDescription, self._weatherFiveTemp]
                                 self._weath += weatherOne
-                                print(self._weath)
+                                //print(self._weath)
                                 
                             }
 
