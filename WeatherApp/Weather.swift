@@ -254,9 +254,8 @@ class Weather {
                                 }
                             }
                                 let weatherOne = [self._weatherFiveDay, self._weatherFivePic, self._weatherFiveDescription, self._weatherFiveTemp]
-                                //var weath = [String!]()
                                 self._weath += weatherOne
-                                //print(self._weath)
+                                print(self._weath)
                                 
                             }
 
