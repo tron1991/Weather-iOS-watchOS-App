@@ -231,20 +231,18 @@ class Weather {
                                 let date = NSDate(timeIntervalSince1970: time)
                                 let dayFormatter = NSDateFormatter()
                                 dayFormatter.dateFormat = "EEEE"
-                                self._weatherFiveDay = dayFormatter.stringFromDate(date)     
+                                self._weatherFiveDay = dayFormatter.stringFromDate(date)
                             }
                             
                             if let pic = list[x*7]["main"] as? Dictionary<String,AnyObject> {
                                 if let main = pic["temp"] as? Double {
                                     self._weatherFiveTemp = NSString(format: "%.0f", main-273.15) as String
-                                    
                                 }
                             }
                             
                             if let weather = list[x*7]["weather"] as? [Dictionary<String, AnyObject>] where weather.count > 0 {
                                 if let main = weather[0]["main"] as? String {
                                     self._weatherFivePic = main
-                                    
                                 }
                                 
                                 if let desc = weather[0]["description"] as? String {

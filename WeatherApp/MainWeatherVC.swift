@@ -27,7 +27,6 @@ class MainWeatherVC: UIViewController, WCSessionDelegate {
     @IBOutlet weak var dayFourDate: SpringLabel!
     @IBOutlet weak var dayFiveDate: SpringLabel!
     
-    
     @IBOutlet weak var dayOnePic: SpringImageView!
     @IBOutlet weak var dayTwoPic: SpringImageView!
     @IBOutlet weak var dayThreePic: SpringImageView!
@@ -49,6 +48,8 @@ class MainWeatherVC: UIViewController, WCSessionDelegate {
     var manager: OneShotLocationManager?
     var weatherToday : Weather!
     var weatherFiveDay: Weather!
+    var saveLat: Double!
+    var saveLong: Double!
     
     var session: WCSession!
     
@@ -62,6 +63,11 @@ class MainWeatherVC: UIViewController, WCSessionDelegate {
             session.delegate = self;
             session.activateSession()
         }
+        
+        locationUpdate()
+    }
+    
+    func locationUpdate() {
         // request the current location
         manager = OneShotLocationManager()
         manager!.fetchWithCompletion {location, error in
@@ -69,29 +75,35 @@ class MainWeatherVC: UIViewController, WCSessionDelegate {
             // fetch location or an error
             if let loc = location {
                 
+                self.saveLat = loc.coordinate.latitude
+                self.saveLong = loc.coordinate.longitude
                 let weatherType = true
-                self.weatherToday = Weather(locationLat: loc.coordinate.latitude, locationLong: loc.coordinate.longitude, apiCall: weatherType)
+                self.weatherToday = Weather(locationLat: self.saveLat, locationLong: self.saveLong, apiCall: weatherType)
                 self.weatherToday.downloadWeatherDetails { () -> () in
                     self.updateMainUI()
                 }
-                
-                let weatherT = false
-                self.weatherFiveDay = Weather(locationLat: loc.coordinate.latitude, locationLong: loc.coordinate.longitude, apiCall: weatherT)
+                self.delay(0.5) {
+                          let weatherT = false
+                self.weatherFiveDay = Weather(locationLat: self.saveLat, locationLong: self.saveLong, apiCall: weatherT)
+            
                 self.weatherFiveDay.downloadFiveDayWeatherDetails{ () -> () in
                     self.updateFiveDayForecast()
+                  }
                 }
-                
+          
             } else if let err = error {
-                print(err.localizedDescription)
+                print(err.localizedDescription.lowercaseString)
+                //print("ccarroro")
             }
             
             // destroy the object immediately to save memory
             self.manager = nil
         }
+
     }
     
     func updateMainUI() {
-        self.weatherPictureImg.image = UIImage(named: weatherToday.todayWeatherPic)
+        self.weatherPictureImg.image = UIImage(named: setBigPic(weatherToday.todayWeatherPic))
         weatherPictureImg.animation = "squeezeLeft"
         weatherPictureImg.animate()
         
@@ -116,9 +128,7 @@ class MainWeatherVC: UIViewController, WCSessionDelegate {
         
         
         //animations 
-        
-        
-        
+
         self.dayOneDate.text = weatherFiveDay.weath[0]
         dayOneDate.animation = "slideLeft"
         dayOneDate.animate()
@@ -225,6 +235,30 @@ class MainWeatherVC: UIViewController, WCSessionDelegate {
             return "sun_35"
         }
     }
+    
+    func setBigPic(weather: String) -> String {
+        switch weather {
+        case "Clouds":
+            return "Clouds"
+        case "Rain":
+            return "Rain"
+        case "Snow":
+            return "Snow"
+        case "Clear":
+            return "Clear"
+        default:
+            return "Clear"
+        }
+    }
+
+    func delay(delay:Double, closure:()->()) {
+        dispatch_after(
+            dispatch_time(
+                DISPATCH_TIME_NOW,
+                Int64(delay * Double(NSEC_PER_SEC))
+            ),
+            dispatch_get_main_queue(), closure)
+    }
 
     
     
@@ -236,10 +270,7 @@ class MainWeatherVC: UIViewController, WCSessionDelegate {
     
     
     func refreshWeatherStats() {
-        weatherToday.downloadWeatherDetails { () -> () in
-            self.updateMainUI()
-        }
-        
+        locationUpdate()
     }
     
     func session(session: WCSession, didReceiveMessage message: [String : AnyObject], replyHandler: ([String : AnyObject]) -> Void) {
